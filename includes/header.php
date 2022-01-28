@@ -45,7 +45,7 @@ $resultProductos = mysqli_query($conn, $sqlProductos);
 <body>
     <nav class="navbar navbar-dark bg-dark shadow width-nav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Power Lounge</a>
+            <a class="navbar-brand" href="index.php">Power Lounge Dauri</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <span class="navbar-toggler-icon"></span>
             </button>
