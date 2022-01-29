@@ -97,8 +97,8 @@ $resultProductos = mysqli_query($conn, $sqlProductos);
                         <a href="almacen.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> ALMACEN</li>
                         </a>
-                        <a href="bonos.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> COBROS</li>
+                        <a href="creditos.php" class="nav-link">
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> CREDITOS</li>
                         </a>
                         <a href="bonos-cobros.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-calendar-x-fill"></i> CLIENTES</li>
