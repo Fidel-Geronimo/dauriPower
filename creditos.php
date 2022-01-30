@@ -12,7 +12,16 @@ if (!isset($_SESSION["rol"])) {
         header("Location: km15/facturacionkm15.php");
     }
 }
+// Consulta para el select de la ventana modal de los vendedores y clientes 
+$sqlVendedor = "SELECT id,nombre from vendedores";
+$resultVendedor = mysqli_query($conn, $sqlVendedor);
+
+$sqlCliente = "SELECT id,nombre from clientes";
+$resultCliente = mysqli_query($conn, $sqlCliente);
+
 include("includes/header.php");
+
+
 ?>
 <!-- ============================================ -->
 
@@ -23,7 +32,7 @@ include("includes/header.php");
         <div class="row">
             <!-- boton de nueva factura -->
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#modalVendedor"><i class="fas fa-plus"></i> Nueva Entrega</button>
+            <button type="button" class="btn btn-success btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#modalVendedorYcliente"><i class="fas fa-plus"></i> Nueva Entrega</button>
 
             <!--  -->
             <div class="table-responsive">
@@ -45,7 +54,7 @@ include("includes/header.php");
                     <tbody id=" developers">
                         <?php
 
-                        $query = "SELECT * from entregasmuestra ORDER BY fecha DESC";
+                        $query = "SELECT * from entregamuestracredito ORDER BY fecha DESC";
                         $result_facturacion = mysqli_query($conn, $query);
                         $contador = 0;
 
@@ -67,7 +76,7 @@ include("includes/header.php");
 
                                     <p>
                                         <a href="editEntrega.php?idVendedor=<?php echo $row['idVendedor'] ?>&idDetalle='<?php echo $row['idDetalle'] ?>'" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
-                                        <a onclick="confirmacion('<?php echo $row['idDetalle'] ?>')" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
+                                        <a onclick="confirmacionEliminarCredito('<?php echo $row['idDetalle'] ?>')" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
                                         <!-- <button class="btn btn-primary itemMenuLateral dropdown-toggle bg-primary text-white mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo $azul ?>" aria-expanded="false" aria-controls="<?php echo $azul ?>">
                                             Opciones
                                         </button> -->

@@ -81,6 +81,45 @@ $resultProductos = mysqli_query($conn, $sqlProductos);
         </div>
     </div>
     <!--  -->
+    <!-- Modal par seleccionar el Vendedor y el cliente en el agregado de un credito nuevo -->
+    <div class="modal fade" id="modalVendedorYcliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Selecciona El Vendedor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="validacionVendedor.php?id=2" method="post">
+                        <label for="selectVendedorCredito"><b>Vendedor:</b></label>
+                        <select style="width: 100%" required id="selectVendedorCredito" name="selectVendedor" class="form-select" aria-label="Default select example">
+                            <option selected>Selecciona El Vendedor y Cliente</option>
+                            <?php while ($ver = mysqli_fetch_row($resultVendedor)) { ?>
+                                <option value="<?php echo $ver[0] ?>">
+                                    <?php echo $ver[1] ?>
+                                </option>
+                            <?php  } ?>
+                        </select>
+                        <label for="selectClienteCredito"><b>Cliente:</b></label>
+                        <select style="width: 100%" required id="selectClienteCredito" name="selectVendedor" class="form-select" aria-label="Default select example">
+                            <option selected>Selecciona El Cliente</option>
+                            <?php while ($ver = mysqli_fetch_row($resultCliente)) { ?>
+                                <option value="<?php echo $ver[0] ?>">
+                                    <?php echo $ver[1] ?>
+                                </option>
+                            <?php  } ?>
+                        </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Listo</button>
+
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--  -->
     <!-- Modal menu lateral-->
     <div class="modal fade edicionModal-1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
@@ -106,33 +145,6 @@ $resultProductos = mysqli_query($conn, $sqlProductos);
                         <a href="clientes.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> VENDEDORES</li>
                         </a>
-
-                        <!-- boton collapse facturacion km15 -->
-                        <!-- <a class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <i class="iconos bi bi-plus-circle-fill"></i> FACTURACION KM15
-                            </li>
-                        </a>
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
-                                <a href="km15\facturacionkm15.php" class="nav-link">
-                                    <li class="list-group-item itemMenuLateral">FACTURACION</li>
-                                </a>
-                                <a href="km15\cobroskm15.php" class="nav-link">
-                                    <li class="list-group-item itemMenuLateral">COBROS</li>
-                                </a>
-                                <a href="km15/bonosKm15.php" class="nav-link">
-                                    <li class="list-group-item itemMenuLateral">BONOS</li>
-                                </a>
-                                <a href="km15/bonos-cobrosKm15.php" class="nav-link">
-                                    <li class="list-group-item itemMenuLateral">BONOS VENCIDOS</li>
-                                </a>
-                                <a href="km15/clientesKm15.php" class="nav-link">
-                                    <li class="list-group-item itemMenuLateral"></i> CLIENTES</li>
-                                </a>
-                            </div>
-                        </div> -->
-                        <!--  -->
                         <a href="login.php?cerrar_sesion=cerrar" class="nav-link" id="prueba">
                             <li class="list-group-item itemMenuLateral">CERRAR SESION</li>
                         </a>

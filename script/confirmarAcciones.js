@@ -45,18 +45,18 @@ function confirmacionEditTask(id, idDetalle, idVendedor) {//confirmacion al elim
     });
 }
 
-function confirmacionPago(id) {
+function confirmacionEliminarCredito(idDetalle) {//confirmacion al eliminar un registro Completo
     Swal.fire({
         title: "Decide",
-        text: "Desea Marcar como pago Esta Factura?",
+        text: "Desea Eliminar Este Producto?",
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Pagar",
+        confirmButtonText: "Sí, Eliminar",
         cancelButtonText: "No",
     }).then((resultado) => {
         if (resultado.value) {
-            window.location.href = "marcarPago.php?id=" + id;
+            window.location.href = "deleteTaskAgregadoCredito.php?idDetalle=" + idDetalle;
         }
     });
 }
