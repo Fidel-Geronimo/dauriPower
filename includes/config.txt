@@ -1,0 +1,16 @@
+Para Agregar un nuevo apartado de agregar productos consecutivamente:
+
+Base de Datos:
+
+- DetalleEntrega
+- EntregaMuestra
+- NuevaEntrega
+
+OJO: FIJATE DE LA ESTRUCTURA DE CADA TABLA EN EL LOCALHOST
+========================================================================================
+
+Archivos Nuevos:
+
+- 
+
+
