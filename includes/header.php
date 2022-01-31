@@ -98,10 +98,10 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="validacionVendedor.php?id=2" method="post">
+                    <form action="validacionVendedor.php?id=1" method="post">
                         <label for="selectVendedorCredito"><b>Vendedor:</b></label>
-                        <select style="width: 100%" required id="selectVendedorCredito" name="selectVendedor" class="form-select" aria-label="Default select example">
-                            <option selected>Selecciona El Vendedor y Cliente</option>
+                        <select style="width: 100%" required id="selectVendedorCredito" name="selectVendedorCredito" class="form-select" aria-label="Default select example">
+                            <option selected>Selecciona El Vendedor</option>
                             <?php while ($ver = mysqli_fetch_row($resultVendedor)) { ?>
                                 <option value="<?php echo $ver[0] ?>">
                                     <?php echo $ver[1] ?>
@@ -109,7 +109,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                             <?php  } ?>
                         </select>
                         <label for="selectClienteCredito"><b>Cliente:</b></label>
-                        <select style="width: 100%" required id="selectClienteCredito" name="selectVendedor" class="form-select" aria-label="Default select example">
+                        <select style="width: 100%" required id="selectClienteCredito" name="selectClienteCredito" class="form-select" aria-label="Default select example">
                             <option selected>Selecciona El Cliente</option>
                             <?php while ($ver = mysqli_fetch_row($resultCliente)) { ?>
                                 <option value="<?php echo $ver[0] ?>">

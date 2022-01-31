@@ -9,7 +9,7 @@
 <script src="script/selectProductos.js"></script>
 
 <!-- comportamiento del select de los clientes -->
-<script src="script/select2.js"></script>
+<script src="script/selet2.js"></script>
 
 <!-- tablas intereaccion y paginacion-->
 <script src="script/Paginacionnn.js"></script>
