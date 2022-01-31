@@ -12,12 +12,6 @@ if (!isset($_SESSION["rol"])) {
         header("Location: km15/facturacionkm15.php");
     }
 }
-// Consulta para el select de la ventana modal de los vendedores y clientes 
-$sqlVendedor = "SELECT id,nombre from vendedores";
-$resultVendedor = mysqli_query($conn, $sqlVendedor);
-
-$sqlCliente = "SELECT id,nombre from clientes";
-$resultCliente = mysqli_query($conn, $sqlCliente);
 
 include("includes/header.php");
 

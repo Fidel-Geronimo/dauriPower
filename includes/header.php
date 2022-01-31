@@ -8,6 +8,14 @@ $result = mysqli_query($conn, $sql);
 $sqlProductos = "SELECT id,nombre from productos";
 $resultProductos = mysqli_query($conn, $sqlProductos);
 
+// Consulta para el select de la ventana modal de los vendedores y clientes 
+$sqlVendedor = "SELECT id,nombre from vendedores";
+$resultVendedor = mysqli_query($conn, $sqlVendedor);
+
+$sqlCliente = "SELECT id,nombre from clientes";
+$resultCliente = mysqli_query($conn, $sqlCliente);
+
+
 ?>
 
 <!DOCTYPE html>

@@ -16,8 +16,6 @@ include("includes/header.php");
 ?>
 <!-- ============================================ -->
 
-
-
 <div class="container p-4">
     <h2 class="text-center">ENTREGAS REALIZADAS</h1>
         <div class="row">
