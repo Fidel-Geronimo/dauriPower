@@ -35,10 +35,11 @@ include("includes/header.php");
                 <table class="table table-striped table-bordered" style="width:100%" id="example">
                     <thead>
                         <tr>
+                            <th>Cliente</th>
                             <th>Vendedor</th>
                             <th>Descripcion</th>
                             <th>fecha</th>
-                            <th style="color: #38b52d">Total</th>
+                            <th style="color: #f00">Deuda Total</th>
                             <th>Acciones</th>
 
 
@@ -54,10 +55,11 @@ include("includes/header.php");
 
                         while ($row = mysqli_fetch_array($result_facturacion)) { ?>
                             <tr>
+                                <td><?php echo $row['cliente']; ?></td>
                                 <td><?php echo $row['vendedor']; ?></td>
-                                <td><a href="detalle.php?idDetalle=<?php echo $row['idDetalle']; ?>" class="text-decoration-none text-dark"><?php echo $row['descripcion']; ?></a></td>
+                                <td><a href="detalleCredito.php?idDetalle=<?php echo $row['idDetalle']; ?>" class="text-decoration-none text-dark"><?php echo $row['descripcion']; ?></a></td>
                                 <td><?php echo $row['fecha']; ?></td>
-                                <td style="color:#38b52d"><?php echo $row['total']; ?></td>
+                                <td style="color:#f00"><?php echo $row['total']; ?></td>
 
 
                                 <td>

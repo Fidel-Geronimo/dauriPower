@@ -45,7 +45,7 @@ function confirmacionEditTask(id, idDetalle, idVendedor) {//confirmacion al elim
     });
 }
 
-function confirmacionEliminarCredito(idDetalle) {//confirmacion al eliminar un registro Completo
+function confirmacionEliminarCredito(idDetalle) {//confirmacion al eliminar un registro Completo de credito
     Swal.fire({
         title: "Decide",
         text: "Desea Eliminar Este Producto?",

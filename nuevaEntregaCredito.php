@@ -26,7 +26,7 @@ if (!isset($_SESSION["rol"])) {
     <div class="col">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <button type="button" onclick="location.href='saveTaskCredito.php?id=2&idVendedor=<?php echo $_GET['idVendedor'] ?>&idCliente=<?php echo $_GET['idCliente'] ?>'" class="btn btn-primary"><i class="fas fa-plus"></i></button>
-        <button type="button" onclick="location.href='agregarEntrega.php?id=1'" class="btn btn-success"><i class="fas fa-check-circle"></i></button>
+        <button type="button" onclick="location.href='agregarEntregaCredito.php?id=1'" class="btn btn-success"><i class="fas fa-check-circle"></i></button>
       </div>
     </div>
   </div>
