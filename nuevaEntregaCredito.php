@@ -71,7 +71,7 @@ if (!isset($_SESSION["rol"])) {
             <td>
               <!-- boton De acciones-->
 
-              <a onclick="confirmacionProducto('<?php echo $row['id'] ?>',<?php echo $_GET['idVendedor'] ?>)" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
+              <a onclick="confirmacionProductoCredito('<?php echo $row['id'] ?>',<?php echo $_GET['idVendedor'] ?>,<?php echo $_GET['idCliente'] ?>)" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
               <!-- <a class="btn btn-success botonesOpciones" onclick="confirmacionPago(<?php echo $row['id'] ?>)">Pago</a> -->
               <!--  -->
             </td>

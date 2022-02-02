@@ -44,7 +44,7 @@ if (!isset($_SESSION["rol"])) {
           <th>cantidad</th>
           <th>Precio Compra</th>
           <th>Precio Venta</th>
-          <th style="color: #38b52d;">Sub Total $</th>
+          <th style="color: #38b52d;">Sub Total</th>
           <th>Acciones</th>
 
 

@@ -71,7 +71,7 @@ include("includes/header.php");
                                     $contador = $contador + 1; ?>
 
                                     <p>
-                                        <a href="editEntrega.php?idVendedor=<?php echo $row['idVendedor'] ?>&idDetalle='<?php echo $row['idDetalle'] ?>'" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
+                                        <a href="editEntregaCredito.php?idVendedor=<?php echo $row['idVendedor'] ?>&idDetalle='<?php echo $row['idDetalle'] ?>&idCliente='<?php echo $row['idCliente'] ?>'" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
                                         <a onclick="confirmacionEliminarCredito('<?php echo $row['idDetalle'] ?>')" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
                                         <!-- <button class="btn btn-primary itemMenuLateral dropdown-toggle bg-primary text-white mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo $azul ?>" aria-expanded="false" aria-controls="<?php echo $azul ?>">
                                             Opciones

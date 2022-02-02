@@ -11,6 +11,7 @@ if (isset($_GET["id"])) {
     while ($row = mysqli_fetch_array($result_facturacion)) {
         $contador++;
         $idVendedor = $row['idVendedor'];
+        $idCliente = $row['idCliente'];
         $vendedor = $row['vendedor'];
         $cliente = $row['cliente'];
         $producto = $row['producto'];
@@ -27,10 +28,10 @@ if (isset($_GET["id"])) {
             $descripcion = "Varios Productos";
         }
 
-        $query = "INSERT INTO detalleentregacredito(vendedor,cliente, producto, cantidad, precioCompra,precioVenta,idDetalle,idVendedor,subtotal) VALUES('$vendedor','$cliente','$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$idVendedor','$subTotal')";
+        $query = "INSERT INTO detalleentregacredito(vendedor,cliente, producto, cantidad, precioCompra,precioVenta,idDetalle,idVendedor,idCliente,subtotal) VALUES('$vendedor','$cliente','$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$idVendedor','$idCliente','$subTotal')";
         mysqli_query($conn, $query);
     }
-    $query = "INSERT INTO entregamuestracredito(vendedor,cliente, descripcion,idDetalle,idvendedor,total) VALUES('$vendedor','$cliente','$descripcion','$idDetalle','$idVendedor','$total')";
+    $query = "INSERT INTO entregamuestracredito(vendedor,cliente, descripcion,idDetalle,idvendedor,idCliente,total) VALUES('$vendedor','$cliente','$descripcion','$idDetalle','$idVendedor','$idCliente','$total')";
     mysqli_query($conn, $query);
 
     $queryDelete = "DELETE from nuevaentregacredito";

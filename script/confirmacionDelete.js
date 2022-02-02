@@ -44,7 +44,7 @@ function confirmacionEditTask(id, idDetalle, idVendedor) {//confirmacion al elim
         }
     });
 }
-
+// Creditos acciones
 function confirmacionEliminarCredito(idDetalle) {//confirmacion al eliminar un registro Completo de credito
     Swal.fire({
         title: "Decide",
@@ -60,6 +60,38 @@ function confirmacionEliminarCredito(idDetalle) {//confirmacion al eliminar un r
         }
     });
 }
+function confirmacionProductoCredito(id, idVendedor, idCliente) {//confirmacion al eliminar un producto en especifico de la pantalla del archivo nuevaEntregaCredito
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eliminar Este Articulo?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteTaskNuevaEntregaCredito.php?id=" + id + "&idVendedor=" + idVendedor + "&idCliente=" + idCliente;
+        }
+    });
+}
+
+function confirmacionEditTaskCredito(id, idDetalle, idVendedor, idCliente) {//confirmacion al eliminar un producto en especifico de la pantalla del archico EditEntregaCredito
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eliminar Este Articulo?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteTaskEditCredito.php?id=" + id + "&idDetalle=" + idDetalle + "&idVendedor=" + idVendedor + "&idCliente=" + idCliente;
+        }
+    });
+}
+
 
 function confirmacionPagoBono(id) {
     Swal.fire({
