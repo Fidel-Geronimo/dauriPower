@@ -27,7 +27,7 @@ if (isset($_GET["id"])) {
                     confirmButtonText: "Ok",
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = "saveTaskEdit.php?id=1&idVendedor=<?php echo $idVendedor ?>&idDetalle=<?php echo $idDetalle ?>";
+                        window.location.href = "saveTaskEdit.php?id=1&idVendedor=<?php echo $idVendedor ?>&idDetalle=<?php echo $idDetalle ?>&idProducto=<?php echo $idProducto ?>&cantidad=<?php echo $cantidad ?>";
                     }
                 })
             </script>

@@ -2,6 +2,7 @@
 include("db.php");
 include("includes/header.php");
 
+
 if (isset($_GET["id"])) {
     $id = $_GET['id'];
 
@@ -28,7 +29,7 @@ if (isset($_GET["id"])) {
                     confirmButtonText: "Ok",
                 }).then((result) => {
                     if (result.value) {
-                        window.location.href = "saveTaskEditCredito.php?id=1&idVendedor=<?php echo $idVendedor ?>&idDetalle=<?php echo $idDetalle ?>";
+                        window.location.href = "saveTaskEditCredito.php?id=1&idVendedor=<?php echo $idVendedor ?>&idDetalle=<?php echo $idDetalle ?>&idCliente=<?php echo $idCliente ?>&producto=<?php echo $idProducto ?>";
                     }
                 })
             </script>

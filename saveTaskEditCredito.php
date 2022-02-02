@@ -6,6 +6,7 @@ include("db.php");
 // Consulta para el select de los productos
 $sqlProductos = "SELECT id,nombre from productos";
 $resultProductos = mysqli_query($conn, $sqlProductos);
+$productoSelect = ""; //esta viarble sirve para que cuando se recargue el formulario aparezca con ese valor
 
 if (isset($_GET["id"])) {
   $id = $_GET['id'];
@@ -14,6 +15,9 @@ if (isset($_GET["id"])) {
     // id del vendedor
     $idVendedor = $_GET["idVendedor"];
     $idCliente = $_GET["idCliente"];
+    if (isset($_GET['producto'])) {
+      $productoSelect = $_GET['producto'];
+    }
 
     // informacion del vendedor
     $sqlVendedor = "SELECT nombre from vendedores WHERE id=$idVendedor";
@@ -130,7 +134,7 @@ include("includes/header.php");
           <select id="selectProducto" name="selectProducto" class="js-example-basic-single form-select" aria-label=".form-select-lg example">
             <option selected value="">Selecciona El Producto</option>
             <?php while ($verProductos = mysqli_fetch_row($resultProductos)) { ?>
-              <option value="<?php echo $verProductos[0] ?>">
+              <option value="<?php echo $verProductos[0] ?>" <?php if ($productoSelect == $verProductos[0]) echo "selected" ?>>
                 <?php echo $verProductos[1] ?>
               </option>
             <?php  } ?>

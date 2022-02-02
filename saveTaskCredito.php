@@ -2,12 +2,17 @@
 session_start();
 include("db.php");
 include("includes/header.php");
+$productoSelect = ""; //esta viarble sirve para que cuando se recargue el formulario aparezca con ese valor
+$cantidad = ""; // esto sirve para ponerle el valor desde que se recarga el formulario
 
 if (isset($_GET["id"])) {
   $id = $_GET["id"];
 
   if ($id == 2) { //aqui entra cuando es enviado desde el principio despues de la validacion de clientes y vendedores
-
+    if (isset($_GET["idProducto"])) {
+      $productoSelect = $_GET["idProducto"]; //esta viarble sirve para que cuando se recargue el formulario aparezca con ese valor
+      $cantidad = $_GET['cantidad'];
+    }
     $idVendedor = $_GET["idVendedor"]; // aqui se guarda el id del vendedor al facturarlo
     $idCliente = $_GET["idCliente"]; // aqui se guarda el id del cliente al facturarlo
 
@@ -113,7 +118,7 @@ if (!isset($_SESSION["rol"])) {
             <select id="selectProducto" name="selectProducto" class="js-example-basic-single form-select" aria-label=".form-select-lg example">
               <option selected value="">Selecciona El Producto</option>
               <?php while ($verProductos = mysqli_fetch_row($resultProductos)) { ?>
-                <option value="<?php echo $verProductos[0] ?>">
+                <option value="<?php echo $verProductos[0] ?>" <?php if ($productoSelect == $verProductos[0]) echo "selected" ?>>
                   <?php echo $verProductos[1] ?>
                 </option>
               <?php  } ?>
@@ -124,7 +129,7 @@ if (!isset($_SESSION["rol"])) {
           </div>
           <div class="form-group mb-2">
             <label require for="cantidad">Cantidad</label>
-            <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad De Producto">
+            <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad De Producto" value="<?php echo $cantidad ?>">
           </div>
           <button class="btn btn-success" name="facturar">
             AGREGAR

@@ -147,7 +147,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <a href="creditos.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> CREDITOS</li>
                         </a>
-                        <a href="bonos-cobros.php" class="nav-link">
+                        <a href="clientes.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-calendar-x-fill"></i> CLIENTES</li>
                         </a>
                         <a href="clientes.php" class="nav-link">
