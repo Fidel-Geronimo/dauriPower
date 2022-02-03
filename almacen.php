@@ -22,8 +22,9 @@ include("includes/header.php");
     <h2>PRODUCTOS EN ALMACEN</h1>
         <div class="row">
             <!-- boton de nueva factura -->
-            <button type="button" onclick="location.href='nuevoProducto.php?id=0'" class="btn btn-primary btn-lg edicionButton"><i class="fas fa-plus"></i> Nuevo Producto</button>
-
+            <button type="button" class="btn btn-primary btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#registroProductos"><i class="fas fa-plus"></i>
+                Nuevo Producto
+            </button>
             <!--  -->
             <div class="table-responsive">
                 <!-- tabla -->
@@ -56,37 +57,9 @@ include("includes/header.php");
                                 <td><?php echo $row['precioVenta']; ?></td>
                                 <td><?php echo $row['existencia']; ?></td>
                                 <td><?php echo $row['fecha']; ?></td>
-
-
                                 <td>
-                                    <!-- boton collapse-->
-
-                                    <?php
-                                    $string1 = strval($contador);
-                                    $azul = "collapseExample$contador";
-                                    $contador = $contador + 1; ?>
-
-                                    <p>
-                                        <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
-                                        <button class="btn btn-primary itemMenuLateral dropdown-toggle bg-primary text-white mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo $azul ?>" aria-expanded="false" aria-controls="<?php echo $azul ?>">
-                                            Opciones
-                                        </button>
-
-                                    </p>
-
-                                    <div class="collapse" id="<?php echo $azul ?>">
-                                        <div class="card card-body">
-                                            <!-- <a href="abono-facturas.php?id=<?php echo $row['id'] ?>" class="btn btn-info botonesOpciones text-white">Abonar</a> -->
-                                            <!-- <a class="btn btn-warning botonesOpciones text-white" onclick="confirmacionReenvioGas(<?php echo $row['id'] ?>)">Factura</a> -->
-                                            <a onclick="confirmacion(<?php echo $row['id'] ?>)" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
-                                            <a class="btn btn-success botonesOpciones" onclick="confirmacionPago(<?php echo $row['id'] ?>)">Pago</a>
-                                        </div>
-                                    </div>
-                                    <!--  -->
-
-
-
-
+                                    <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
+                                    <a onclick="confirmacionProductoAlmacen(<?php echo $row['id'] ?>)" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
                                 </td>
                             </tr>
                         <?php } ?>

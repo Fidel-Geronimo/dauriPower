@@ -233,3 +233,43 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
             </div>
         </div>
     </div>
+    <!-- Modal de creacion Productos-->
+    <div class="modal fade" id="registroProductos" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Nuevo Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="save_Producto.php?id=1" method="post" id="formulario">
+                        <div class="form-group mb-2">
+                            <label for="nombre">Nombre: </label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre Del Producto">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="costo">Costo: </label>
+                            <input type="number" id="costo" name="costo" class="form-control" placeholder="Costo Del Producto">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="precio">Precio: </label>
+                            <input type="precio" id="precio" name="precio" class="form-control" placeholder="Precio Del Producto">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="existencia">Existencia: </label>
+                            <input type="number" id="existencia" name="existencia" class="form-control" placeholder="Existencia En Almacen">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Comentarios Adicionales</label>
+                            <textarea name="comentario" placeholder="Agrega un comentario (OPCIONAL)" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" name="boton" value="Crear">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>

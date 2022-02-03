@@ -11,6 +11,29 @@ OJO: FIJATE DE LA ESTRUCTURA DE CADA TABLA EN EL LOCALHOST
 
 Archivos Nuevos:
 
-- 
+- validacionEntregaEditCredito
+- validacionEntregaCredito
+- saveTaskEditCredito
+- saveTaskCredito
+- nuevaEntregaCredito
+- editEntregaCredito
+- detalleCredito
+- deleteTaskNuevaEntregaCredito
+- deleteTaskEditCredito
+- deleteTaskAgregadoCredito
+- creditos
+- agregarEntregaCredito
+========================================================================================
 
+Para Agregar un index simple Como el de clientes o vendedores:
 
+Archivos Nuevos:
+
+- clientes
+- deleteCliente
+- deleteCliente
+- detalleCliente
+- editCliente
+- save_Cliente
+
+========================================================================================

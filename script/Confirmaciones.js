@@ -126,6 +126,23 @@ function confirmacionVendedor(id) {
     });
 }
 // =====================================================
+// producto================================
+function confirmacionProductoAlmacen(id) {
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eiminar este Producto? No se puede revertir!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteProducto.php?id=" + id;
+        }
+    });
+}
+// =====================================================
 
 function confirmacionPagoBono(id) {
     Swal.fire({

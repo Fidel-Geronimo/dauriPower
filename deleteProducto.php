@@ -3,7 +3,7 @@ include("db.php");
 
 if (isset($_GET["id"])) {
     $id = $_GET['id'];
-    $query = "DELETE FROM clientes WHERE id = $id";
+    $query = "DELETE FROM productos WHERE id = $id";
     $resultado = mysqli_query($conn, $query);
 
     if (!$resultado) {
@@ -11,5 +11,5 @@ if (isset($_GET["id"])) {
     }
     $_SESSION['messageDelete'] = 1;
 
-    header("Location: clientes.php");
+    header("Location: almacen.php");
 }
