@@ -150,7 +150,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <a href="clientes.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-calendar-x-fill"></i> CLIENTES</li>
                         </a>
-                        <a href="clientes.php" class="nav-link">
+                        <a href="vendedores.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> VENDEDORES</li>
                         </a>
                         <a href="login.php?cerrar_sesion=cerrar" class="nav-link" id="prueba">
@@ -171,11 +171,45 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Facturacion</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Creacion De Cliente</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="save_Cliente.php" method="post">
+                        <div class="form-group">
+                            <input type="text" name="nombre" class="form-control mt-2" placeholder="Nombre Completo" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="telefono" class="form-control mt-2" placeholder="Numero de Telefono">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" class="form-control mt-2" placeholder="Direccion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Comentarios Adicionales</label>
+                            <textarea name="comentario" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" name="boton" value="Crear">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de creacion Vendedores-->
+    <div class="modal fade" id="registroVendedor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Creacion De Vendedor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="save_Vendedor.php" method="post">
                         <div class="form-group">
                             <input type="text" name="nombre" class="form-control mt-2" placeholder="Nombre Completo" autofocus>
                         </div>

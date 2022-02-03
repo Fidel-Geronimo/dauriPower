@@ -91,7 +91,41 @@ function confirmacionEditTaskCredito(id, idDetalle, idVendedor, idCliente) {//co
         }
     });
 }
-
+// =============================================================
+// Clientes================================
+function confirmacionCliente(id) {
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eiminar este cliente? No se puede revertir!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteCliente.php?id=" + id;
+        }
+    });
+}
+// =====================================================
+// Vendedores================================
+function confirmacionVendedor(id) {
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eiminar este Vendedor? No se puede revertir!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteVendedor.php?id=" + id;
+        }
+    });
+}
+// =====================================================
 
 function confirmacionPagoBono(id) {
     Swal.fire({
@@ -109,21 +143,7 @@ function confirmacionPagoBono(id) {
     });
 }
 
-function confirmacionCliente(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Eiminar este cliente? No se puede revertir!",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Eliminar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "deleteCliente.php?id=" + id;
-        }
-    });
-}
+
 
 function confirmacionReenvioGas(id) {
     Swal.fire({

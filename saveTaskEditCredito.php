@@ -39,7 +39,7 @@ if (isset($_GET["id"])) {
 
     // informacion del cliente
     $idCliente = $_GET["idCliente"]; // aqui se guarda el id del cliente al facturarlo
-    $queryCliente = "SELECT nombre FROM clientes where id=$idVendedor";
+    $queryCliente = "SELECT nombre FROM clientes where id=$idCliente";
     $resultadoCliente = mysqli_query($conn, $queryCliente);
     $rowCliente = mysqli_fetch_array($resultadoCliente);
 
@@ -66,9 +66,20 @@ if (isset($_GET["id"])) {
     $resultadoEntregas = mysqli_query($conn, $queryEntregas);
     $rowEntregas = mysqli_fetch_array($resultadoEntregas);
     $totalEntregas = $rowEntregas['total'] + $subTotal;
+    $descipcion = "Varios Productos";
 
-    $queryEntregas = "UPDATE entregamuestracredito SET total=$totalEntregas WHERE idDetalle = '$idDetalle'";
+    $queryEntregas = "UPDATE entregamuestracredito SET total=$totalEntregas, descripcion='$descipcion' WHERE idDetalle = '$idDetalle'";
     $resultado = mysqli_query($conn, $queryEntregas);
+
+    // $conteo = mysqli_num_rows($resultadoEntregas);
+    // if ($conteo > 1) {
+    //   $descrpcionNueva = "Varios Productos";
+    // } else {
+    //   $descrpcionNueva = $rowEntregas['descripcion'];
+    // }
+
+    // $queryEntregas = "UPDATE entregamuestracredito SET descripcion=$descrpcionNueva WHERE idDetalle = '$idDetalle'";
+    // $resultado = mysqli_query($conn, $queryEntregas);
     // =================================================================
 
     // $_SESSION['message'] = 1;

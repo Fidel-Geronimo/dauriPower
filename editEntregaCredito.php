@@ -3,8 +3,8 @@ session_start();
 include("db.php");
 include("includes/header.php");
 $idDetalle = preg_replace('/(^[\"\']|[\"\']$)/', '', $_GET['idDetalle']);
-$idVendedor = $_GET['idVendedor'];
-$idCliente = $_GET['idCliente'];
+$idVendedor = preg_replace('/(^[\"\']|[\"\']$)/', '', $_GET['idVendedor']);
+$idCliente = preg_replace('/(^[\"\']|[\"\']$)/', '', $_GET['idCliente']);
 ?>
 <!-- verificacion de inicio de sesion -->
 <?php
@@ -28,7 +28,7 @@ if (!isset($_SESSION["rol"])) {
         </div>
         <div class="col">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" onclick="location.href='saveTaskEditCredito.php?id=1&idDetalle=<?php echo $idDetalle ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idVendedor ?>'" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                <button type="button" onclick="location.href='saveTaskEditCredito.php?id=1&idDetalle=<?php echo $idDetalle ?>&idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>'" class="btn btn-primary"><i class="fas fa-plus"></i></button>
                 <button type="button" onclick="location.href='creditos.php'" class="btn btn-success"><i class="fas fa-check-circle"></i></button>
             </div>
         </div>

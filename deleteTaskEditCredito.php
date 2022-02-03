@@ -36,9 +36,13 @@ if (isset($_GET["id"])) {
     $rowDetalle = mysqli_fetch_array($resultadoDetalle);
     $totalDetalle = $rowDetalle['subtotal'];
 
+    // $cantidadDeDatos = mysqli_num_rows($resultadoDetalle);
+    // echo $cantidadDeDatos;
+
     $queryEntregas = "SELECT * FROM entregamuestracredito WHERE idDetalle = '$idDetalle'";
     $resultadoEntregas = mysqli_query($conn, $queryEntregas);
     $rowEntregas = mysqli_fetch_array($resultadoEntregas);
+
     $totalEntregas = $rowEntregas['total'] - $totalDetalle;
     // ==================================================================
 

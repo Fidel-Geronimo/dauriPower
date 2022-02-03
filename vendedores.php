@@ -45,13 +45,13 @@ if (isset($_SESSION['messageCliente'])) { ?>
 
 ?>
 <!-- ========================================================= -->
-<h1 class="text-center">CLIENTES</h1>
+<h1 class="text-center">VENDEDORES</h1>
 <div class="container p-4">
     <div class="row">
         <!-- boton de nueva factura -->
 
-        <button type="button" class="btn btn-primary btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#registroCliente"><i class="fas fa-plus"></i>
-            Nuevo Cliente
+        <button type="button" class="btn btn-primary btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#registroVendedor"><i class="fas fa-plus"></i>
+            Nuevo Vendedor
         </button>
         <!--  -->
         <div class="table-responsive">
@@ -71,13 +71,13 @@ if (isset($_SESSION['messageCliente'])) { ?>
                 </thead>
                 <tbody id="developers">
                     <?php
-                    $query = "SELECT * from clientes ORDER BY fecha DESC";
+                    $query = "SELECT * from vendedores ORDER BY fecha DESC";
                     $result_facturacion = mysqli_query($conn, $query);
                     $contador = 0;
                     while ($row = mysqli_fetch_array($result_facturacion)) { ?>
                         <tr>
                             <td><?php echo $row['id']; ?></td>
-                            <td><a href="detalleCliente.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark"><?php echo $row['nombre']; ?></a></td>
+                            <td><a href="detalleVendedor.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark"><?php echo $row['nombre']; ?></a></td>
                             <td><?php echo $row['telefono']; ?></td>
                             <td><?php echo $row['direccion']; ?></td>
                             <td><?php echo $row['fecha']; ?></td>
@@ -95,9 +95,9 @@ if (isset($_SESSION['messageCliente'])) { ?>
                                 </a>
                                 <div class="collapse" id="<?php echo $azul ?>">
                                     <div class="card card-body">
-                                        <a href="whatsapp/wasaClientes.php?idCliente=<?php echo $row['id'] ?>" class="btn btn-success botonesOpciones"><i class="fab fa-whatsapp"></i></a>
-                                        <a href="editCliente.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar</a>
-                                        <a class="btn btn-danger botonesOpciones" onclick="confirmacionCliente(<?php echo $row['id'] ?>)">Eliminar</a>
+                                        <a href="whatsapp/wasaVendedores.php?idVendedor=<?php echo $row['id'] ?>" class="btn btn-success botonesOpciones"><i class="fab fa-whatsapp"></i></a>
+                                        <a href="editVendedor.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar</a>
+                                        <a class="btn btn-danger botonesOpciones" onclick="confirmacionVendedor(<?php echo $row['id'] ?>)">Eliminar</a>
                                     </div>
                                 </div>
                             </td>
