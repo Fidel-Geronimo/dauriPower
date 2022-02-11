@@ -4,8 +4,9 @@ include("db.php");
 include("includes/header.php");
 ?>
 <!-- verificacion de inicio de sesion -->
-<?php
 
+<?php
+$tituloEntrada = "";
 if (!isset($_SESSION["rol"])) {
   header("Location: login.php");
 } ?>
@@ -21,7 +22,7 @@ if (!isset($_SESSION["rol"])) {
     </div>
     <div class="col">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="button" onclick="location.href='saveTaskEntrada.php?id=10'" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+        <button type="button" onclick="location.href='saveTaskEntrada.php?id=10'" class="btn btn-primary "><i class="fas fa-plus"></i></button>
         <button type="button" onclick="location.href='agregarEntrada.php?id=1'" class="btn btn-success"><i class="fas fa-check-circle"></i></button>
       </div>
     </div>
@@ -29,9 +30,10 @@ if (!isset($_SESSION["rol"])) {
 </div>
 </div>
 <div class="container">
-  <div class="table-responsive">
+  <label for="tituloEntrada">TITULO ENTRADA: </label>
+  <input id="tituloEntrada" type="text" placeholder="" value="" onchange="guardado()">
+  <div class=" table-responsive">
     <!-- tabla -->
-
     <table class="table table-striped table-bordered" style="width:100%" id="example">
       <thead>
         <tr>

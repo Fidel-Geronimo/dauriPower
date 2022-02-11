@@ -3,19 +3,19 @@ session_start();
 include("db.php");
 if (isset($_GET["id"])) {
 
-    $query = "SELECT * from nuevaentrega";
-    $result_facturacion = mysqli_query($conn, $query);
+    $query = "SELECT * from nuevaentrada";
+    $resultEntrada = mysqli_query($conn, $query);
     $contador = 0; //controlo la descripcion del producto
     $total = 0;
-    while ($row = mysqli_fetch_array($result_facturacion)) {
+
+    while ($row = mysqli_fetch_array($resultEntrada)) {
         $contador++;
-        $idVendedor = $row['idVendedor'];
-        $vendedor = $row['vendedor'];
+
         $producto = $row['producto'];
         $cantidad = $row['cantidad'];
         $precioCompra = $row['precioCompra'];
         $precioVenta = $row['precioVenta'];
-        $subTotal = $row['subtotal'];
+        $subTotal = $row['subTotal'];
         $total = $total + $subTotal;
 
         if ($contador == 1) {
@@ -25,13 +25,13 @@ if (isset($_GET["id"])) {
             $descripcion = "Varios Productos";
         }
 
-        $query = "INSERT INTO detalleentregas(vendedor, producto, cantidad, precioCompra,precioVenta,idDetalle,idVendedor,subtotal) VALUES('$vendedor','$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$idVendedor','$subTotal')";
+        $query = "INSERT INTO detalleentrada (producto, cantidad, precioCompra,precioVenta,idDetalle,subTotal) VALUES('$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$subTotal')";
         mysqli_query($conn, $query);
     }
-    $query = "INSERT INTO entregasmuestra(vendedor, descripcion,idDetalle,idvendedor,total) VALUES('$vendedor','$descripcion','$idDetalle','$idVendedor','$total')";
+    $query = "INSERT INTO historialentradas(descripcion,total,idDetalle) VALUES('$descripcion','$total','$idDetalle')";
     mysqli_query($conn, $query);
 
-    $queryDelete = "DELETE from nuevaentrega";
+    $queryDelete = "DELETE from nuevaentrada";
     mysqli_query($conn, $queryDelete);
 
     // $_SESSION['message'] = 1;
@@ -43,7 +43,7 @@ if (isset($_GET["id"])) {
     // $_SESSION['precioCliente'] = $precio; 
 ?>
     <script>
-        window.location = "index.php"
+        window.location = "almacen.php"
     </script>
 <?php
 }

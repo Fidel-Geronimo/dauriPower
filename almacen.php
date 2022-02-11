@@ -29,6 +29,8 @@ include("includes/header.php");
                     <button type="button" onclick="location.href='nuevaEntrada.php?id=0'" class="btn btn-primary btn-lg edicionButton"><i class="fas fa-plus"></i>
                         Agregar Existencia
                     </button>
+                    <button type="button" onclick="location.href='historialEntradas.php'" class="btn btn-primary btn-lg edicionButton"><i class="bi bi-clock-history"></i>
+                    </button>
                 </div>
             </div>
         </div>
