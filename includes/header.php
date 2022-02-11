@@ -150,6 +150,9 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <a href="clientes.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-calendar-x-fill"></i> CLIENTES</li>
                         </a>
+                        <a href="gastos.php" class="nav-link">
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> GASTOS</li>
+                        </a>
                         <a href="vendedores.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> VENDEDORES</li>
                         </a>
@@ -222,6 +225,38 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Comentarios Adicionales</label>
                             <textarea name="comentario" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" name="boton" value="Crear">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de registro De un gasto-->
+    <div class="modal fade" id="registroGasto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Registro De Gastos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="save_Gasto.php" method="post">
+                        <div class="form-group mb-2">
+                            <label for="titulo">TITULO: </label>
+                            <input type="text" id="titulo" name="titulo" class="form-control mt-2" placeholder="AGREGA UN TITULO" autofocus>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="monto">MONTO PAGADO: </label>
+                            <input type="number" id="monto" name="monto" class="form-control mt-2" placeholder="VALOR EN EFECTIVO">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="exampleFormControlTextarea1" class="form-label">DESCRIPCION DEL GASTO</label>
+                            <textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

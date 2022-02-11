@@ -142,6 +142,39 @@ function confirmacionProductoAlmacen(id) {
         }
     });
 }
+// para borrar un producto en la cesta de la entrada de productos
+function confirmacionProductoEntrada(id, idVendedor) {//confirmacion al eliminar un producto en especifico de la pantalla nuevaEntrada.php
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eliminar Este Articulo?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteTaskNuevaEntrada.php?id=" + id;
+        }
+    });
+}
+// =====================================================
+// Gastos================================
+function confirmarEliminarGasto(id) {
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eiminar este Gasto? No se puede revertir!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteGasto.php?id=" + id;
+        }
+    });
+}
 // =====================================================
 
 function confirmacionPagoBono(id) {

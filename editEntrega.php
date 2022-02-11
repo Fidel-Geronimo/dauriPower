@@ -3,7 +3,8 @@ session_start();
 include("db.php");
 include("includes/header.php");
 $idDetalle = preg_replace('/(^[\"\']|[\"\']$)/', '', $_GET['idDetalle']);
-$idVendedor = $_GET['idVendedor'];
+$idVendedor = preg_replace('/(^[\"\']|[\"\']$)/', '', $_GET['idVendedor']);
+echo $idVendedor;
 ?>
 <!-- verificacion de inicio de sesion -->
 <?php
