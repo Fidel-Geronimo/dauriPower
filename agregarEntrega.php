@@ -7,6 +7,7 @@ if (isset($_GET["id"])) {
     $result_facturacion = mysqli_query($conn, $query);
     $contador = 0; //controlo la descripcion del producto
     $total = 0;
+
     while ($row = mysqli_fetch_array($result_facturacion)) {
         $contador++;
         $idVendedor = $row['idVendedor'];
@@ -17,6 +18,13 @@ if (isset($_GET["id"])) {
         $precioVenta = $row['precioVenta'];
         $subTotal = $row['subtotal'];
         $total = $total + $subTotal;
+        $idProducto = $row['idProducto'];
+
+        $queryProductos = "SELECT existencia from productos WHERE id=$idProducto"; //SELECCIONA LOS PRODUCTOS QUE SE LE VA A MODIFICAR LA EXISTENCIA
+        $resultProductos = mysqli_query($conn, $queryProductos);
+        $rowProductos = mysqli_fetch_array($resultProductos);
+        $existenciaAntigua = $rowProductos['existencia'];
+        $existenciaNueva = $existenciaAntigua - $cantidad;
 
         if ($contador == 1) {
             $idDetalle = uniqid(); //AQUI SE GENERA UN ID UNICO PARA LA FACTURACION
@@ -25,7 +33,10 @@ if (isset($_GET["id"])) {
             $descripcion = "Varios Productos";
         }
 
-        $query = "INSERT INTO detalleentregas(vendedor, producto, cantidad, precioCompra,precioVenta,idDetalle,idVendedor,subtotal) VALUES('$vendedor','$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$idVendedor','$subTotal')";
+        $queryExistencia = "UPDATE productos set existencia = '$existenciaNueva' WHERE id = $idProducto";
+        mysqli_query($conn, $queryExistencia);
+
+        $query = "INSERT INTO detalleentregas(vendedor, producto, cantidad, precioCompra,precioVenta,idDetalle,idVendedor,subtotal,idProducto) VALUES('$vendedor','$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$idVendedor','$subTotal','$idProducto')";
         mysqli_query($conn, $query);
     }
     $query = "INSERT INTO entregasmuestra(vendedor, descripcion,idDetalle,idvendedor,total) VALUES('$vendedor','$descripcion','$idDetalle','$idVendedor','$total')";

@@ -27,13 +27,18 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Power Lounge </title>
     <!-- bootstrap 5-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://bootswatch.com/5/litera/bootstrap.min.css" rel="stylesheet"> <!-- cdn de BootWach -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
     <!-- iconos de booststrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
     <!-- font awesome 5 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
     <!-- cloudtables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.css" />
+
     <!-- favicon -->
     <!-- <link rel="shortcut icon" href="img/logo.ico"> -->
 
@@ -169,6 +174,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
         </div>
     </div>
     <!--  -->
+
     <!-- Modal de creacion cliente-->
     <div class="modal fade" id="registroCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -301,6 +307,30 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                             <input type="submit" class="btn btn-primary" name="boton" value="Crear">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de titulo de entrada de Productos-->
+    <div class="modal fade" id="tituloEntrada" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Titulo De La Entrada</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="agregarEntrada.php?id=1" method="post" id="formulario">
+                        <div class="form-group mb-2">
+                            <label for="titulo">Titulo: </label>
+                            <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Titulo De La Entrada">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" name="boton" value="Guardar">
                         </div>
                     </form>
 

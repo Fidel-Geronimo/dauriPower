@@ -68,7 +68,7 @@ include("includes/header.php");
                             <td><?php echo $row['existencia']; ?></td>
                             <td><?php echo $row['fecha']; ?></td>
                             <td>
-                                <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
+                                <a href="editProducto.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
                                 <a onclick="confirmacionProductoAlmacen(<?php echo $row['id'] ?>)" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
                             </td>
                         </tr>

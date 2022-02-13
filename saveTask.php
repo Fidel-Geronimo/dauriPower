@@ -48,7 +48,7 @@ if (isset($_GET["id"])) {
     $precioVenta = $_GET['precio'];
     $subTotal = intval($precioVenta) * intval($cantidad);
 
-    $query = "INSERT INTO nuevaentrega(vendedor, producto, cantidad, precioCompra,precioVenta,idVendedor,subtotal) VALUES('$vendedor','$producto','$cantidad','$precioCompra', '$precioVenta','$idVendedor','$subTotal')";
+    $query = "INSERT INTO nuevaentrega(vendedor, producto, cantidad, precioCompra,precioVenta,idVendedor,subtotal,idProducto) VALUES('$vendedor','$producto','$cantidad','$precioCompra', '$precioVenta','$idVendedor','$subTotal','$idProducto')";
 
     mysqli_query($conn, $query);
 

@@ -47,13 +47,13 @@ if (!isset($_SESSION["rol"])) {
             <tbody id=" developers">
                 <?php
 
-                $query = "SELECT * FROM historialentradas";
+                $query = "SELECT * FROM historialentradas ORDER BY fecha DESC";
                 $result_facturacion = mysqli_query($conn, $query);
                 $contador = 0;
 
                 while ($row = mysqli_fetch_array($result_facturacion)) { ?>
                     <tr>
-                        <td><a href="detalle.php?idDetalle=<?php echo $row['idDetalle']; ?>" class="text-decoration-none text-dark"><?php echo $row['descripcion']; ?></a></td>
+                        <td><a href="detalleEntrada.php?idDetalle=<?php echo $row['idDetalle']; ?>" class="text-decoration-none text-dark"><?php echo $row['descripcion']; ?></a></td>
                         <td style="color:#38b52d;"><?php echo $row['total'] ?></td>
                         <td><?php echo $row['fecha']; ?></td>
 
