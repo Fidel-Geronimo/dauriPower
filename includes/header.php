@@ -4,6 +4,10 @@ include("db.php");
 $sql = "SELECT id,nombre from vendedores";
 $result = mysqli_query($conn, $sql);
 
+// Consulta para el select de los vendedores en las entrada efectivo
+$sqlEfectivo = "SELECT id,nombre from vendedores";
+$resultEfectivo = mysqli_query($conn, $sql);
+
 // Consulta para el select de los productos
 $sqlProductos = "SELECT id,nombre from productos";
 $resultProductos = mysqli_query($conn, $sqlProductos);
@@ -146,6 +150,9 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <a href="index.php" class="nav-link">
                             <li class="bg-primary text-white list-group-item itemMenuLateral"><i class="iconos bi bi-file-text-fill"></i>ENTREGAS</li>
                         </a>
+                        <a href="efectivo.php" class="nav-link">
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> EFECTIVO</li>
+                        </a>
                         <a href="almacen.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> ALMACEN</li>
                         </a>
@@ -166,14 +173,49 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         </a>
                     </ul>
                 </div>
-
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="container">
+                        <div class="row">
+                            <button type="button" onclick="location.href='cuadre.php'" class="btn btn-success">CUADRAR</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!--  -->
+    <!-- Modal de REGISTRO DE ENTRADA EFECTIVO-->
+    <div class="modal fade" id="registroEntradaEfectivo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Entrada De Efectivo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="validacionEfectivo.php?id=1" method="post">
+                        <label for="selectVendedorEntrada"><b>Vendedor:</b></label>
+                        <select style="width: 100%" required id="selectVendedorEntrada" name="selectVendedorEntrada" class="form-select" aria-label="Default select example">
+                            <option selected>Selecciona El Vendedor</option>
+                            <?php while ($ver = mysqli_fetch_row($resultEfectivo)) { ?>
+                                <option value="<?php echo $ver[0] ?>">
+                                    <?php echo $ver[1] ?>
+                                </option>
+                            <?php  } ?>
+                        </select>
+                        <div class="form-group mt-3">
+                            <input type="number" name="efectivo" class="form-control mt-2" placeholder="Cantidad De Efectivo" autofocus>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" name="boton" value="Registrar">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal de creacion cliente-->
     <div class="modal fade" id="registroCliente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

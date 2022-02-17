@@ -122,7 +122,6 @@ include("includes/header.php");
           <div class="form-group mb-2" id="select2lista"></div>
           <!--  -->
         </div>
-        <div class="form-group mb-2" id="select2lista"></div>
         <!--  -->
     </div>
     <div class="form-group mb-2">

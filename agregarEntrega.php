@@ -39,7 +39,7 @@ if (isset($_GET["id"])) {
         $query = "INSERT INTO detalleentregas(vendedor, producto, cantidad, precioCompra,precioVenta,idDetalle,idVendedor,subtotal,idProducto) VALUES('$vendedor','$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$idVendedor','$subTotal','$idProducto')";
         mysqli_query($conn, $query);
     }
-    $query = "INSERT INTO entregasmuestra(vendedor, descripcion,idDetalle,idvendedor,total) VALUES('$vendedor','$descripcion','$idDetalle','$idVendedor','$total')";
+    $query = "INSERT INTO entregasmuestra(vendedor, descripcion,idDetalle,idvendedor,total,estado) VALUES('$vendedor','$descripcion','$idDetalle','$idVendedor','$total',1)";
     mysqli_query($conn, $query);
 
     $queryDelete = "DELETE from nuevaentrega";

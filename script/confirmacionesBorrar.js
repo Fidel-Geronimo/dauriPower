@@ -176,6 +176,23 @@ function confirmarEliminarGasto(id) {
     });
 }
 // =====================================================
+// eliminar efectivo de la tabla de entrada efectivo
+function confirmarEliminarEfectivo(id) {
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eiminar este Monto? No se puede revertir!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteEfectivo.php?id=" + id;
+        }
+    });
+}
+// =====================================================
 
 function confirmacionPagoBono(id) {
     Swal.fire({
