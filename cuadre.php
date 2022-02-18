@@ -12,6 +12,33 @@ if (!isset($_SESSION["rol"])) {
         header("Location: km15/facturacionkm15.php");
     }
 }
+
+
+// funcion de cierre
+if (isset($_GET['close'])) {
+
+    // cierre entregas a vendedores
+    $queryEntregas = "UPDATE entregasmuestra set estado = 0 WHERE estado = 1";
+    mysqli_query($conn, $queryEntregas);
+
+    // cierre efectivo 
+    $queryEfectivo = "UPDATE efectivo set estado = 0 WHERE estado = 1";
+    mysqli_query($conn, $queryEfectivo);
+
+    // cierre entradas de productos
+    $queryEntradas = "UPDATE historialentradas set estado = 0 WHERE estado = 1";
+    mysqli_query($conn, $queryEntradas);
+
+    // cierre creditos 
+    $queryCreditos = "UPDATE entregamuestracredito set estado = 0 WHERE estado = 1";
+    mysqli_query($conn, $queryCreditos);
+
+    // cierre gastos
+    $queryGastos = "UPDATE gastos set estado = 0 WHERE estado = 1";
+    mysqli_query($conn, $queryGastos);
+
+    header("location: index.php"); //directo al index
+}
 include("includes/header.php");
 ?>
 <!-- ============================================ -->
@@ -19,18 +46,10 @@ include("includes/header.php");
 
 
 <div class="container p-4">
-    <h2 class="">CUADRE</h1>
+    <h2 class="text-center">CUADRE</h1>
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <button type="button" class="btn btn-primary btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#registroProductos"><i class="fas fa-plus"></i>
-                        Imprimir
-                    </button>
-                    <!-- <button type="button" onclick="location.href='nuevaEntrada.php?id=0'" class="btn btn-primary btn-lg edicionButton"><i class="fas fa-plus"></i>
-                        Agregar Existencia
-                    </button>
-                    <button type="button" onclick="location.href='historialEntradas.php'" class="btn btn-primary btn-lg edicionButton"><i class="bi bi-clock-history"></i>
-                    </button> -->
                 </div>
             </div>
         </div>
@@ -39,45 +58,104 @@ include("includes/header.php");
         <div class="table-responsive">
             <!-- tabla -->
 
-            <table class="table table-striped table-bordered" style="width:100%" id="example">
-                <thead>
+            <table class="table table-hover" style="width:100%">
+                <thead class="table-primary">
                     <tr>
                         <th>Razon</th>
                         <th>Total</th>
-                        <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody id=" developers">
+                <tbody>
                     <?php
+
                     // seleccion de las entregas de la semana
                     $queryEntregas = "SELECT * from entregasmuestra WHERE estado=1";
                     $resultadoEntregas = mysqli_query($conn, $queryEntregas);
-                    $rowEntregas = mysqli_fetch_array($resultadoEntregas);
+                    $totalEntregas = 0;
+                    while ($rowEntregas = mysqli_fetch_array($resultadoEntregas)) {
+                        $totalEntregas = $rowEntregas["total"] + $totalEntregas;
+                    }
+                    // seleccion del efectivo de la semana
+                    $queryEfectivo = "SELECT * from efectivo WHERE estado=1";
+                    $resultadoEfectivo = mysqli_query($conn, $queryEfectivo);
+                    $totalEfectivo = 0;
+                    while ($rowEfectivo = mysqli_fetch_array($resultadoEfectivo)) {
+                        $totalEfectivo = $rowEfectivo["cantidad"] + $totalEfectivo;
+                    }
+                    // seleccion de las entradas de productos de la semana
+                    $queryEntradas = "SELECT * from historialentradas WHERE estado=1";
+                    $resultadoEntradas = mysqli_query($conn, $queryEntradas);
+                    $totalEntradas = 0;
+                    while ($rowEntradas = mysqli_fetch_array($resultadoEntradas)) {
+                        $totalEntradas = $rowEntradas["total"] + $totalEntradas;
+                    }
+                    // seleccion de los creditos de la semana
+                    $queryCreditos = "SELECT * from entregamuestracredito WHERE estado=1";
+                    $resultadoCreditos = mysqli_query($conn, $queryCreditos);
+                    $totalCreditos = 0;
+                    while ($rowCreditos = mysqli_fetch_array($resultadoCreditos)) {
+                        $totalCreditos = $rowCreditos["total"] + $totalCreditos;
+                    }
+                    // seleccion de las entregas de la semana
+                    $queryGastos = "SELECT * from gastos WHERE estado=1";
+                    $resultadoGastos = mysqli_query($conn, $queryGastos);
+                    $totalGastos = 0;
+                    while ($rowGastos = mysqli_fetch_array($resultadoGastos)) {
+                        $totalGastos = $rowGastos["monto"] + $totalGastos;
+                    }
 
-                    $total = $rowEntregas["total"];
+
+
                     // ===========================================
                     $contador = 0;
                     ?>
                     <tr>
-                        <td>Monto Total (Entregas)</td>
-                        <td><?php echo $total ?></td>
-                        <td>
-                            <a href="editProducto.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
-                            <a onclick="confirmacionProductoAlmacen(<?php echo $row['id'] ?>)" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
-                        </td>
+                        <td style="color: #32cd32;"><b>Efectivo Entregado (Vendedores)</b></td>
+                        <td style="color: #32cd32;"><b>$<?php echo $totalEfectivo ?></b></td>
                     </tr>
                     <tr>
-                        <td>Total (Gastos)</td>
-                        <td><?php echo $total ?></td>
-                        <td>
-                            <a href="editProducto.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
-                            <a onclick="confirmacionProductoAlmacen(<?php echo $row['id'] ?>)" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
-                        </td>
+                        <td>Entregas A Vendedores (Productos)</td>
+                        <td>$<?php echo $totalEntregas ?></td>
+                    </tr>
+
+                    <tr>
+                        <td>Entradas Realizadas (Productos)</td>
+                        <td>$<?php echo $totalEntradas ?></td>
+
+                    </tr>
+                    <tr>
+                        <td>Creditos Despachados</td>
+                        <td>$<?php echo $totalCreditos ?></td>
+
+                    </tr>
+                    <tr>
+                        <td>Gastos Realizados</td>
+                        <td>$<?php echo $totalGastos ?></td>
+
                     </tr>
                     <?php  ?>
 
                 </tbody>
+                <tfoot class="table-primary">
+                    <tr>
+                        <th>Razon</th>
+                        <th>Total</th>
+                    </tr>
+                </tfoot>
             </table>
+        </div>
+        <div class="d-flex bd-highlight mb-3">
+            <div class="me-auto p-2 bd-highlight">
+                <button type="button" class="btn btn-warning btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#registroProductos"><i class="bi bi-printer-fill"></i>
+                    Imprimir
+                </button>
+            </div>
+
+            <div class="p-2 bd-highlight">
+                <button type="button" onclick="confirmarCierre()" class="btn btn-success btn-lg edicionButton"><i class="bi bi-check-square-fill"></i>
+                    Realizar Caudre
+                </button>
+            </div>
         </div>
 
 </div>

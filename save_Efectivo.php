@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
   $rowVendedor = mysqli_fetch_array($resultadoVendedor);
   $nombreVendedor = $rowVendedor['nombre'];
 
-  $query = "INSERT INTO efectivo(vendedor, cantidad) VALUES('$nombreVendedor','$efectivo')";
+  $query = "INSERT INTO efectivo(vendedor, cantidad,estado) VALUES('$nombreVendedor','$efectivo',1)";
   $resultado =  mysqli_query($conn, $query);
 
   if (!$resultado) {

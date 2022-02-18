@@ -193,61 +193,11 @@ function confirmarEliminarEfectivo(id) {
     });
 }
 // =====================================================
-
-function confirmacionPagoBono(id) {
+// Realizar Cuadre
+function confirmarCierre(id) {
     Swal.fire({
         title: "Decide",
-        text: "Desea Marcar como pago Esta Factura?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Pagar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "marcarPagoBono.php?id=" + id;
-        }
-    });
-}
-
-
-
-function confirmacionReenvioGas(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Reenviar Esta Factura?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Reenviar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "Whatsapp/wasaReenvioGas.php?id=" + id;
-        }
-    });
-}
-
-function confirmacionReenvioBonos(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Reenviar Esta Factura?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Reenviar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "Whatsapp/wasaReenvioBonos.php?id=" + id;
-        }
-    });
-}
-// SCRIPS  DEL  KM 15=====================================
-function confirmacionKm15(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Eliminar Esta Factura?",
+        text: "Seguro Que Desea Realizar El cuadre?, No Se Puede Revertir!",
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#007bff",
@@ -255,105 +205,8 @@ function confirmacionKm15(id) {
         cancelButtonText: "No",
     }).then((resultado) => {
         if (resultado.value) {
-            window.location.href = "deleteTaskkm15.php?id=" + id;
+            window.location.href = "cuadre.php?close=true";
         }
     });
 }
-
-function confirmacionPagoKm15(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Marcar como pago Esta Factura?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Pagar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "marcarPagokm15.php?id=" + id;
-        }
-    });
-}
-
-function confirmacionBonosKm15(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Eliminar Esta Factura?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Eliminar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "../km15/deleteTask-bonosKm15.php?id=" + id;
-        }
-    });
-}
-
-function confirmacionPagoBonoKm15(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Marcar como pago Esta Factura?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Pagar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "marcarPagoBonoKm15.php?id=" + id;
-        }
-    });
-}
-
-function confirmacionClienteKm15(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Eiminar este cliente?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Eliminar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "deleteClienteKm15.php?id=" + id;
-        }
-    });
-}
-
-function confirmacionReenvioGasKm15(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Reenviar Esta Factura?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Reenviar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href =
-                "WhatsappKm15/wasaReenvioGasKm15.php?idCliente=" + id;
-        }
-    });
-}
-
-function confirmacionReenvioBonosKm15(id) {
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Reenviar Esta Factura?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Reenviar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href =
-                "WhatsappKm15/wasaReenvioBonosKm15.php?idCliente=" + id;
-        }
-    });
-}
+// =====================================================

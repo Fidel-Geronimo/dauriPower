@@ -54,7 +54,7 @@ if (isset($_GET["id"])) {
             $query = "INSERT INTO detalleentrada (producto, cantidad, precioCompra,precioVenta,idDetalle,subTotal) VALUES('$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$subTotal')";
             mysqli_query($conn, $query);
         }
-        $query = "INSERT INTO historialentradas(descripcion,total,idDetalle) VALUES('$titulo','$total','$idDetalle')";
+        $query = "INSERT INTO historialentradas(descripcion,total,idDetalle,estado) VALUES('$titulo','$total','$idDetalle',1)";
         mysqli_query($conn, $query);
 
         $queryDelete = "DELETE from nuevaentrada";

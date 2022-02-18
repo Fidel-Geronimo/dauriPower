@@ -29,7 +29,7 @@ if (isset($_POST['boton'])) {
     $monto = $_POST['monto'];
     $descripcion = ucfirst(strtolower($_POST['descripcion']));
 
-    $query = "INSERT INTO gastos(titulo, monto, descripcion) VALUES('$titulo','$monto','$descripcion')";
+    $query = "INSERT INTO gastos(titulo, monto, descripcion,estado) VALUES('$titulo','$monto','$descripcion',1)";
     $resultado =  mysqli_query($conn, $query);
 
     if (!$resultado) {

@@ -62,10 +62,11 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
 <body>
     <nav class="navbar navbar-dark bg-dark shadow width-nav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">Power Lounge</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a class="navbar-brand" href="index.php">Power Lounge</a>
+
         </div>
     </nav>
     <!-- Modal par seleccionar el Vendedor al ser agregado -->
@@ -295,20 +296,20 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                 <div class="modal-body">
                     <form action="save_Gasto.php" method="post">
                         <div class="form-group mb-2">
-                            <label for="titulo">TITULO: </label>
-                            <input type="text" id="titulo" name="titulo" class="form-control mt-2" placeholder="AGREGA UN TITULO" autofocus>
+                            <label for="titulo">Titulo: </label>
+                            <input type="text" id="titulo" name="titulo" class="form-control mt-2" placeholder="Titulo Del Gasto" autofocus>
                         </div>
                         <div class="form-group mb-2">
-                            <label for="monto">MONTO PAGADO: </label>
-                            <input type="number" id="monto" name="monto" class="form-control mt-2" placeholder="VALOR EN EFECTIVO">
+                            <label for="monto">Monto Pagado: </label>
+                            <input type="number" id="monto" name="monto" class="form-control mt-2" placeholder="Valor En Efectivo">
                         </div>
                         <div class="form-group mb-2">
-                            <label for="exampleFormControlTextarea1" class="form-label">DESCRIPCION DEL GASTO</label>
+                            <label for="exampleFormControlTextarea1" class="form-label">Descripcion Adicional</label>
                             <textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <input type="submit" class="btn btn-primary" name="boton" value="Crear">
+                            <input type="submit" class="btn btn-primary" name="boton" value="Registrar">
                         </div>
                     </form>
 

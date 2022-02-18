@@ -34,6 +34,9 @@ if (isset($_GET["idDetalle"])) {
     $queryMuestras = "DELETE FROM entregamuestracredito WHERE idDetalle = '$idDetalle'";
     $resultado = mysqli_query($conn, $queryMuestras);
 
+    $queryEntregas = "DELETE FROM detalleentregacredito WHERE idDetalle = '$idDetalle'";
+    $resultado = mysqli_query($conn, $queryEntregas);
+
     if (!$resultado) {
         die("Query Failed");
     }
