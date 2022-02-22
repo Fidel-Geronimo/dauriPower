@@ -37,6 +37,10 @@ if (isset($_GET['close'])) {
     $queryGastos = "UPDATE gastos set estado = 0 WHERE estado = 1";
     mysqli_query($conn, $queryGastos);
 
+    //Para El historial 
+    $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Realizo Un Cuadre')";
+    mysqli_query($conn, $queryHistorial);
+
     header("location: index.php"); //directo al index
 }
 include("includes/header.php");
@@ -46,14 +50,16 @@ include("includes/header.php");
 
 
 <div class="container p-4">
-    <h2 class="text-center">CUADRE</h1>
+    <h2>CUADRE</h1>
         <div class="container">
             <div class="row">
                 <div class="col">
+
                 </div>
             </div>
         </div>
-        <!-- boton de nueva factura -->
+        <!-- boton de Historial de Cuadres -->
+
         <!--  -->
         <div class="table-responsive">
             <!-- tabla -->

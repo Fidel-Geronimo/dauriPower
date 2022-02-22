@@ -45,13 +45,10 @@ if (isset($_GET["id"])) {
     $queryDelete = "DELETE from nuevaentrega";
     mysqli_query($conn, $queryDelete);
 
-    // $_SESSION['message'] = 1;
-    // $_SESSION['NombreCliente'] = $nombre;
-    // $_SESSION['TelefonoCliente'] = $telefono;
-    // $_SESSION['galonesCliente'] = $galones;
-    // $_SESSION['deudaCliente'] = $deuda;
-    // $_SESSION['AbonoCliente'] = $abono;
-    // $_SESSION['precioCliente'] = $precio; 
+    $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Realizo Una Entrega De Productos a $vendedor')";
+    mysqli_query($conn, $queryHistorial);
+
+    $_SESSION['entrega'] = 1;
 ?>
     <script>
         window.location = "index.php"

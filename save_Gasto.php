@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include("db.php");
 include("includes/header.php");
 if (isset($_POST['boton'])) {
@@ -31,6 +33,9 @@ if (isset($_POST['boton'])) {
 
     $query = "INSERT INTO gastos(titulo, monto, descripcion,estado) VALUES('$titulo','$monto','$descripcion',1)";
     $resultado =  mysqli_query($conn, $query);
+
+    $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Registró Un Nuevo Gasto ')";
+    mysqli_query($conn, $queryHistorial);
 
     if (!$resultado) {
       die("Query Failed");

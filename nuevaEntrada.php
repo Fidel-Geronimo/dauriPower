@@ -10,11 +10,41 @@ $tituloEntrada = "";
 if (!isset($_SESSION["rol"])) {
   header("Location: login.php");
 } ?>
-<!-- ============================================ -->
+<!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->
 <?php
-?>
+// mensaje que lanza al Agregar Producto por producto al proceso de entrada
+if (isset($_SESSION['nuevaEntradaProducto'])) { ?>
+  <script>
+    Swal.fire({
+      title: "Agregado!",
+      showConfirmButton: false,
+      icon: 'success',
+      toast: true,
+      position: "bottom-end",
+      timer: 2000
+    });
+  </script>
+<?php unset($_SESSION['nuevaEntradaProducto']);
+} ?>
+
+<?php
+// mensaje que lanza al Eliminar Producto por producto al proceso de entrada
+if (isset($_SESSION['productoDelete'])) { ?>
+  <script>
+    Swal.fire({
+      title: "Eliminado!",
+      showConfirmButton: false,
+      icon: 'success',
+      toast: true,
+      position: "bottom-end",
+      timer: 2000
+    });
+  </script>
+<?php unset($_SESSION['productoDelete']);
+} ?>
 
 
+<!-- ==================================================================== -->
 <div class="container mb-3 mt-2">
   <div class="row align-items-center">
     <div class="col">

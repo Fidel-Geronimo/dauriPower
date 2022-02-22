@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php");
 include("includes/header.php");
 if (isset($_GET['id'])) {
@@ -15,10 +16,13 @@ if (isset($_GET['id'])) {
   $query = "INSERT INTO efectivo(vendedor, cantidad,estado) VALUES('$nombreVendedor','$efectivo',1)";
   $resultado =  mysqli_query($conn, $query);
 
+  $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Registro Una Entrada De Efectivo Del Vendedor $nombreVendedor ')";
+  mysqli_query($conn, $queryHistorial);
+
   if (!$resultado) {
     die("Query Failed");
   }
-  // $_SESSION['messageCliente']  = 1; 
+  $_SESSION['entradaEfectivo']  = 1;
 ?>
   <script>
     window.location = "efectivo.php"

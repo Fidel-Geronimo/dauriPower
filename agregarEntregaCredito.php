@@ -37,13 +37,10 @@ if (isset($_GET["id"])) {
     $queryDelete = "DELETE from nuevaentregacredito";
     mysqli_query($conn, $queryDelete);
 
-    // $_SESSION['message'] = 1;
-    // $_SESSION['NombreCliente'] = $nombre;
-    // $_SESSION['TelefonoCliente'] = $telefono;
-    // $_SESSION['galonesCliente'] = $galones;
-    // $_SESSION['deudaCliente'] = $deuda;
-    // $_SESSION['AbonoCliente'] = $abono;
-    // $_SESSION['precioCliente'] = $precio; 
+    $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Registró Un Creditos De Productos Al Cliente $cliente')";
+    mysqli_query($conn, $queryHistorial);
+
+    $_SESSION['EntregaAgregadaCredito'] = 1;
 
     echo $idDetalle;
 ?>

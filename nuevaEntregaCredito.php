@@ -13,6 +13,41 @@ if (!isset($_SESSION["rol"])) {
     header("Location: km15/facturacionkm15.php");
   }
 } ?>
+
+<!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->
+<?php
+// mensaje que lanza al Agregar Producto por producto al proceso de entrega Credito
+if (isset($_SESSION['agregadoProductoCredito'])) { ?>
+  <script>
+    Swal.fire({
+      title: "Agregado!",
+      showConfirmButton: false,
+      icon: 'success',
+      toast: true,
+      position: "bottom-end",
+      timer: 2000
+    });
+  </script>
+<?php unset($_SESSION['agregadoProductoCredito']);
+} ?>
+
+<?php
+// mensaje que lanza al Eliminar un producto de la cesta de entrega Credito
+if (isset($_SESSION['ProductoEliminadoCredito'])) { ?>
+  <script>
+    Swal.fire({
+      title: "Eliminado!",
+      showConfirmButton: false,
+      icon: 'success',
+      toast: true,
+      position: "bottom-end",
+      timer: 2000
+    });
+  </script>
+<?php unset($_SESSION['ProductoEliminadoCredito']);
+} ?>
+
+
 <!-- ============================================ -->
 <?php
 ?>

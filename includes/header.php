@@ -169,6 +169,9 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <a href="vendedores.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> VENDEDORES</li>
                         </a>
+                        <a href="historial.php" class="nav-link">
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> HISTORIAL</li>
+                        </a>
                         <a href="login.php?cerrar_sesion=cerrar" class="nav-link" id="prueba">
                             <li class="list-group-item itemMenuLateral">CERRAR SESION</li>
                         </a>

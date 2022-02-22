@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php");
 
 if (isset($_GET["idDetalle"])) {
@@ -28,12 +29,14 @@ if (isset($_GET["idDetalle"])) {
     $queryMuestras = "DELETE FROM entregasmuestra WHERE idDetalle = '$idDetalle'";
     $resultado = mysqli_query($conn, $queryMuestras);
 
+    $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Eliminó Un Registro De Entrega De Productos')";
+    mysqli_query($conn, $queryHistorial);
+
     if (!$resultado) {
         die("Query Failed");
     }
 
-    // $_SESSION["revertir"] = 1;
-    // $_SESSION['messageDelete'] = 1;
+    $_SESSION['eliminarEntrega'] = 1;
 
     header("Location: index.php");
 }

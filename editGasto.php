@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php");
 
 
@@ -36,6 +37,11 @@ if (isset($_GET["id"])) {
 
             $query = "UPDATE gastos set titulo = '$titulo', monto= '$monto',descripcion= '$descripcion' WHERE id = $id";
             mysqli_query($conn, $query);
+
+            $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Editó Un Gasto Del Sistema')";
+            mysqli_query($conn, $queryHistorial);
+
+
 
             // $_SESSION['messageEdit'] = 1; 
         ?>

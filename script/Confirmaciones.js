@@ -1,7 +1,7 @@
 function confirmacion(idDetalle) {//confirmacion al eliminar un registro Completo
     Swal.fire({
         title: "Decide",
-        text: "Desea Eliminar Este Producto?",
+        text: "Desea Eliminar Esta Entrega de Productos?, No Se Puede Revertir!",
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#007bff",
@@ -29,26 +29,11 @@ function confirmacionProducto(id, idVendedor) {//confirmacion al eliminar un pro
         }
     });
 }
-function confirmacionEditTask(id, idDetalle, idVendedor) {//confirmacion al eliminar un producto en especifico de la pantalla del archico EditEntrega
-    Swal.fire({
-        title: "Decide",
-        text: "Desea Eliminar Este Articulo?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Eliminar",
-        cancelButtonText: "No",
-    }).then((resultado) => {
-        if (resultado.value) {
-            window.location.href = "deleteTaskEdit.php?id=" + id + "&idDetalle=" + idDetalle + "&idVendedor=" + idVendedor;
-        }
-    });
-}
 // Creditos acciones
 function confirmacionEliminarCredito(idDetalle) {//confirmacion al eliminar un registro Completo de credito
     Swal.fire({
         title: "Decide",
-        text: "Desea Eliminar Este Producto?",
+        text: "Desea Eliminar Este Credito?",
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#007bff",
@@ -180,7 +165,7 @@ function confirmarEliminarGasto(id) {
 function confirmarEliminarEfectivo(id) {
     Swal.fire({
         title: "Decide",
-        text: "Desea Eiminar este Monto? No se puede revertir!",
+        text: "Desea Eiminar este Efectivo? No se puede revertir!",
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#007bff",
@@ -201,7 +186,7 @@ function confirmarCierre(id) {
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#007bff",
-        confirmButtonText: "Sí, Eliminar",
+        confirmButtonText: "Sí, Cuadrar",
         cancelButtonText: "No",
     }).then((resultado) => {
         if (resultado.value) {

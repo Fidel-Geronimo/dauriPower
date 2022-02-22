@@ -35,13 +35,8 @@ if (isset($_GET["id"])) {
 
     mysqli_query($conn, $query);
 
-    // $_SESSION['message'] = 1;
-    // $_SESSION['NombreCliente'] = $nombre;
-    // $_SESSION['TelefonoCliente'] = $telefono;
-    // $_SESSION['galonesCliente'] = $galones;
-    // $_SESSION['deudaCliente'] = $deuda;
-    // $_SESSION['AbonoCliente'] = $abono;
-    // $_SESSION['precioCliente'] = $precio; 
+    $_SESSION['nuevaEntradaProducto'] = 1;
+
   ?>
     <script>
       window.location = "nuevaEntrada.php"
@@ -69,6 +64,7 @@ if (!isset($_SESSION["rol"])) {
 <!--  -->
 
 <div class="container p-4 shadow editwidth">
+  <h2 class="text-center">Producto Entrada</h2>
   <div class="col-md-8 mx-auto">
     <div class="card_body">
       <form action="validacionEntrada.php?id=1" method="post" id="formulario">

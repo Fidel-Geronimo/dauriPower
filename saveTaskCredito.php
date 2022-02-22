@@ -63,13 +63,8 @@ if (isset($_GET["id"])) {
 
     mysqli_query($conn, $query);
 
-    // $_SESSION['message'] = 1;
-    // $_SESSION['NombreCliente'] = $nombre;
-    // $_SESSION['TelefonoCliente'] = $telefono;
-    // $_SESSION['galonesCliente'] = $galones;
-    // $_SESSION['deudaCliente'] = $deuda;
-    // $_SESSION['AbonoCliente'] = $abono;
-    // $_SESSION['precioCliente'] = $precio; 
+    $_SESSION['agregadoProductoCredito'] = 1;
+
   ?>
     <script>
       window.location = "nuevaEntregaCredito.php?idVendedor=<?php echo $idVendedor ?>&idCliente=<?php echo $idCliente ?>"

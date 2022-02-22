@@ -1,4 +1,6 @@
-<?php include("db.php") ?>
+<?php include("db.php");
+session_start();
+?>
 <!-- verificacion de inicio de sesion -->
 
 <!--  -->
@@ -6,44 +8,34 @@
 <?php include("includes/header.php") ?>
 <!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->
 <?php
-// mensaje que lanza al editar un cliente
-if (isset($_SESSION['messageEdit'])) { ?>
+// mensaje que lanza al Registrar Efectivo
+if (isset($_SESSION['entradaEfectivo'])) { ?>
     <script>
         Swal.fire({
-            title: "Cliente Editado Correctamente",
+            title: "Efectvo Registrado!",
             confirmButtonColor: '#007bff',
             confirmButtonText: "Ok",
             icon: 'success'
         });
     </script>
-<?php unset($_SESSION['messageEdit']);
-}
-// Mensaje que lanza al borrar un cliente
-if (isset($_SESSION['messageDelete'])) { ?>
-    <script>
-        Swal.fire({
-            title: "Cliente Elimnado Correctamente",
-            confirmButtonColor: '#007bff',
-            confirmButtonText: "Ok",
-            icon: 'success'
-        });
-    </script>
-<?php unset($_SESSION['messageDelete']);
-}
-// mensaje que lanza al registrar un cliente
-if (isset($_SESSION['messageCliente'])) { ?>
-    <script>
-        Swal.fire({
-            title: "Cliente Registrado Correctamente",
-            confirmButtonColor: '#007bff',
-            confirmButtonText: "Ok",
-            icon: 'success'
-        });
-    </script>
-<?php unset($_SESSION['messageCliente']);
-}
+<?php unset($_SESSION['entradaEfectivo']);
+} ?>
+<?php
 
-?>
+// mensaje que lanza al Eliminar Un Efectivo
+if (isset($_SESSION['deleteEfectivo'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Registro Eliminado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['deleteEfectivo']);
+} ?>
+
+
 <!-- ========================================================= -->
 <h1 class="text-center">EFECTIVO VENDEDORES</h1>
 <div class="container p-4">

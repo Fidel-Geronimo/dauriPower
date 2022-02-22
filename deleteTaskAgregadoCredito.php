@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php");
 
 if (isset($_GET["idDetalle"])) {
@@ -37,11 +38,14 @@ if (isset($_GET["idDetalle"])) {
     $queryEntregas = "DELETE FROM detalleentregacredito WHERE idDetalle = '$idDetalle'";
     $resultado = mysqli_query($conn, $queryEntregas);
 
+    $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Eliminó Un Credito Del Sistema')";
+    mysqli_query($conn, $queryHistorial);
+
     if (!$resultado) {
         die("Query Failed");
     }
-    // $_SESSION["revertir"] = 1;
-    // $_SESSION['messageDelete'] = 1;
+
+    $_SESSION['borradoCredito'] = 1;
 
     header("Location: creditos.php");
 }

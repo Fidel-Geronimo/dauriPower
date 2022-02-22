@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php");
 include("includes/header.php");
 if (isset($_POST['boton'])) {
@@ -55,6 +56,10 @@ if (isset($_POST['boton'])) {
       if (!$resultado) {
         die("Query Failed");
       }
+
+      $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Creo Un Vendedor Nuevo Llamado $nombre')";
+      mysqli_query($conn, $queryHistorial);
+
       // $_SESSION['messageCliente']  = 1; 
     ?>
       <script>

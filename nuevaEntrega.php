@@ -13,9 +13,42 @@ if (!isset($_SESSION["rol"])) {
     header("Location: km15/facturacionkm15.php");
   }
 } ?>
-<!-- ============================================ -->
+
+<!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->
 <?php
-?>
+// mensaje que lanza al Agregar Producto por producto al proceso de entrega
+if (isset($_SESSION['message'])) { ?>
+  <script>
+    Swal.fire({
+      title: "Agregado!",
+      showConfirmButton: false,
+      icon: 'success',
+      toast: true,
+      position: "bottom-end",
+      timer: 2000
+    });
+  </script>
+<?php unset($_SESSION['message']);
+} ?>
+
+<?php
+// mensaje que lanza al Eliminar un producto de la cesta de entrega
+if (isset($_SESSION['deleteProductoEntrega'])) { ?>
+  <script>
+    Swal.fire({
+      title: "Eliminado!",
+      showConfirmButton: false,
+      icon: 'success',
+      toast: true,
+      position: "bottom-end",
+      timer: 2000
+    });
+  </script>
+<?php unset($_SESSION['deleteProductoEntrega']);
+} ?>
+
+
+<!-- ============================================ -->
 
 
 <div class="container mb-3 mt-2">

@@ -14,7 +14,37 @@ if (!isset($_SESSION["rol"])) {
 }
 include("includes/header.php");
 ?>
+<!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->
+<?php
+// mensaje que lanza al Realizar Una Entrega a un Vendedor
+if (isset($_SESSION['entrega'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Entrega Realizada!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['entrega']);
+} ?>
+<?php
+
+// mensaje que lanza al Eliminar un Registro e Entrega
+if (isset($_SESSION['eliminarEntrega'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Entrega Eliminada",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['eliminarEntrega']);
+} ?>
+
 <!-- ============================================ -->
+
 
 <div class="container p-4">
     <h2 class="text-center">ENTREGAS REALIZADAS</h1>
@@ -64,7 +94,6 @@ include("includes/header.php");
                                     $contador = $contador + 1; ?>
 
                                     <p>
-                                        <a href="editEntrega.php?idVendedor=<?php echo $row['idVendedor'] ?>&idDetalle='<?php echo $row['idDetalle'] ?>'" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
                                         <a onclick="confirmacion('<?php echo $row['idDetalle'] ?>')" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
                                         <!-- <button class="btn btn-primary itemMenuLateral dropdown-toggle bg-primary text-white mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo $azul ?>" aria-expanded="false" aria-controls="<?php echo $azul ?>">
                                             Opciones

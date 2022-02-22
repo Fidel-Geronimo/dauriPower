@@ -14,6 +14,64 @@ if (!isset($_SESSION["rol"])) {
 }
 include("includes/header.php");
 ?>
+
+<?php
+// mensaje que lanza al Crear un producto nuevo en almacen
+if (isset($_SESSION['nuevoProducto'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Producto Creado Correctamente",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['nuevoProducto']);
+} ?>
+<?php
+// mensaje que lanza al Editar un producto en almacen
+if (isset($_SESSION['edicionProducto'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Producto Editado Correctamente",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['edicionProducto']);
+} ?>
+
+<?php
+// mensaje que lanza al Agregar una Entrada de productos
+if (isset($_SESSION['agregadoEntrada'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Entrada Realizada!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['agregadoEntrada']);
+} ?>
+
+<?php
+// mensaje que lanza al Agregar una Entrada de productos
+if (isset($_SESSION['deleteProducto'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Producto Eliminado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['deleteProducto']);
+} ?>
+
+
+
 <!-- ============================================ -->
 
 

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php");
 
 
@@ -46,6 +47,10 @@ if (isset($_GET["id"])) {
 
             $query = "UPDATE vendedores set nombre = '$nombre', telefono= '$telefono',direccion= '$direccion',comentario= '$comentario' WHERE id = $id";
             mysqli_query($conn, $query);
+
+            $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Editó La Informacion De Un Vendedor')";
+            mysqli_query($conn, $queryHistorial);
+
             $_SESSION['messageEdit'] = 1; ?>
             <script>
                 window.location = "vendedores.php";
@@ -76,6 +81,7 @@ include("includes/header.php");
 <!--  -->
 
 <div class="container p-4 shadow editwidth">
+    <h2 class="text-center">Edicion Vendedor</h2>
     <div class="col-md-8 mx-auto">
         <div class="card_body">
             <form action="editVendedor.php?id=<?php echo $_GET["id"]; ?>" method="post">

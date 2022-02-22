@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php");
 include("includes/header.php");
 if (isset($_POST['boton'])) {
@@ -49,6 +50,9 @@ if (isset($_POST['boton'])) {
 
     <?php  } else {
       $query = "INSERT INTO clientes(nombre, telefono, direccion, comentario) VALUES('$nombre','$telefono','$direccion','$comentario')";
+
+      $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Creó Un Cliente Nuevo Llamado $nombre')";
+      mysqli_query($conn, $queryHistorial);
 
       $resultado =  mysqli_query($conn, $query);
 

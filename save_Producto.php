@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("db.php");
 include("includes/header.php");
 if (isset($_POST['boton'])) {
@@ -33,13 +34,16 @@ if (isset($_POST['boton'])) {
     $comentario = ucfirst(strtolower($_POST['comentario']));
     $query = "INSERT INTO productos(nombre,precioCompra,precioVenta,existencia, comentario) VALUES('$nombre','$precioCompra','$precioVenta','$existencia', '$comentario')";
 
+    $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Creo Un Producto Llamado $nombre')";
+    mysqli_query($conn, $queryHistorial);
+
     $resultado = mysqli_query($conn, $query);
 
     if (!$resultado) {
       die("Query Failed");
     }
 
-    // $_SESSION['messageCliente']  = 1; 
+    $_SESSION['nuevoProducto']  = 1;
   ?>
     <script>
       window.location = "almacen.php"
