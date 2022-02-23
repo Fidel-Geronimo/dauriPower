@@ -43,6 +43,32 @@ if (isset($_SESSION['eliminarEntrega'])) { ?>
 <?php unset($_SESSION['eliminarEntrega']);
 } ?>
 
+<?php
+
+// mensaje que lanza al Eliminar un Registro e Entrega
+if (isset($_SESSION['Cuadrado'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Cuadre Realizado Con Exito!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['Cuadrado']);
+} ?>
+
+<!-- ============================================ -->
+<!-- ============================================ -->
+<!-- limpiado de base de nueva entrada -->
+
+<?php
+if (isset($_SESSION['Contenido'])) {
+    $queryDelete = "DELETE FROM nuevaentrega";
+    $result_facturacion = mysqli_query($conn, $queryDelete);
+}
+
+?>
 <!-- ============================================ -->
 
 

@@ -13,6 +13,52 @@ include("includes/header.php");
 
 
 ?>
+
+<!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->
+<?php
+// mensaje que lanza al Crear un Gasto
+if (isset($_SESSION['saveGasto'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Gasto Registrado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['saveGasto']);
+}
+?>
+
+<?php
+// mensaje que lanza al Borrar un Gasto
+if (isset($_SESSION['deleteGasto'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Gasto Eliminado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['deleteGasto']);
+}
+?>
+
+<?php
+// mensaje que lanza al Editar un Gasto
+if (isset($_SESSION['editGasto'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Gasto Editado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['editGasto']);
+}
+?>
 <!-- ============================================ -->
 
 

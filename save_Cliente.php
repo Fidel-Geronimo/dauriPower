@@ -59,7 +59,8 @@ if (isset($_POST['boton'])) {
       if (!$resultado) {
         die("Query Failed");
       }
-      // $_SESSION['messageCliente']  = 1; 
+      $_SESSION['nuevoCliente']  = 1;
+
     ?>
       <script>
         window.location = "clientes.php"

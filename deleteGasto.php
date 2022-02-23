@@ -15,7 +15,7 @@ if (isset($_GET["id"])) {
     $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Elimino Un Gasto Del Sistema')";
     mysqli_query($conn, $queryHistorial);
 
-    // $_SESSION['messageDelete'] = 1;
+    $_SESSION['deleteGasto'] = 1;
 
     header("Location: gastos.php");
 }

@@ -53,6 +53,7 @@ if (isset($_GET["id"])) {
     mysqli_query($conn, $query);
 
     $_SESSION['message'] = 1;
+    $_SESSION['Contenido'] = 1;
   ?>
     <script>
       window.location = "nuevaEntrega.php?idVendedor=<?php echo $idVendedor ?>"

@@ -60,7 +60,7 @@ if (isset($_POST['boton'])) {
       $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Creo Un Vendedor Nuevo Llamado $nombre')";
       mysqli_query($conn, $queryHistorial);
 
-      // $_SESSION['messageCliente']  = 1; 
+      $_SESSION['saveVendededor']  = 1;
     ?>
       <script>
         window.location = "vendedores.php"

@@ -70,6 +70,19 @@ if (isset($_SESSION['deleteProducto'])) { ?>
 <?php unset($_SESSION['deleteProducto']);
 } ?>
 
+<?php
+// mensaje que lanza al Eliminar una Entrada de historial entradas
+if (isset($_SESSION['eliminarEntradas'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Entrada Eliminada!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['eliminarEntradas']);
+} ?>
 
 
 <!-- ============================================ -->

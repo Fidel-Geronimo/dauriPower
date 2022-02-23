@@ -17,20 +17,50 @@ include("includes/header.php");
 
 
 ?>
-<?php
-// mensaje que lanza al Agregar un Registro de Creditos
-if (isset($_SESSION['EntregaAgregadaCredito'])) { ?>
-    <script>
-        Swal.fire({
-            title: "Credito Registrado",
-            confirmButtonColor: '#007bff',
-            confirmButtonText: "Ok",
-            icon: 'success'
-        });
-    </script>
-<?php unset($_SESSION['EntregaAgregadaCredito']);
-} ?>
 
+<?php
+// mensaje al Registrar un nuevo credito
+if (isset($_SESSION['EntregaAgregadaCredito'])) {
+    if ($_SESSION['EntregaAgregadaCredito'] == 1) {
+        $nombre = $_SESSION['nombreCliente'];
+        $telefono = $_SESSION['telefonoCliente'];
+        $text = "*MENSAJE AUTOMATICO POWER LOUNGE*%0A%0A*FACTURA A CREDITO:*%0APara: *$nombre*%0A%0A*PRODUCTOS*:%0A%0A";
+        $contador = 0;
+        foreach ($_SESSION['productos'] as $producto) {
+            $text = "$text - " . $_SESSION['cantidades'][$contador] . " $producto = RD" . "$" . $_SESSION['total'][$contador] . "%0A%0A";
+            $contador++;
+        }
+        $text = "$text REALICE SU PAGO LO ANTES POSIBLE%0AGGRACIAS POR SU COMPRA "
+
+?>
+        <script>
+            Swal
+                .fire({
+                    title: "Credito Registrado!",
+                    text: "Desea Enviar Aviso Al cliente?",
+                    icon: 'success',
+                    showCancelButton: true,
+                    confirmButtonColor: '#007bff',
+                    confirmButtonText: "Sí, Enviar",
+                    cancelButtonText: "No",
+                })
+                .then(resultado => {
+                    if (resultado.value) {
+                        // Hicieron click en "Sí"
+                        window.location = "https://wa.me/1<?php echo $telefono ?>?text=<?php echo $text ?>";
+                    }
+                });
+        </script>
+<?php
+        unset($_SESSION['nombreCliente']);
+        unset($_SESSION['telefonoCliente']);
+        unset($_SESSION['productos']);
+        unset($_SESSION['total']);
+        unset($_SESSION['cantidades']);
+        unset($_SESSION['EntregaAgregadaCredito']);
+    }
+}
+?>
 <?php
 // mensaje que lanza al Eliminar un Registro de Creditos
 if (isset($_SESSION['borradoCredito'])) { ?>
@@ -44,6 +74,7 @@ if (isset($_SESSION['borradoCredito'])) { ?>
     </script>
 <?php unset($_SESSION['borradoCredito']);
 } ?>
+
 
 <!-- ============================================ -->
 

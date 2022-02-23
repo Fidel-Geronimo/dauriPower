@@ -1,48 +1,58 @@
-<?php include("db.php") ?>
+<?php
+session_start();
+include("db.php");
+?>
 <!-- verificacion de inicio de sesion -->
+
 
 <!--  -->
 
 <?php include("includes/header.php") ?>
+
 <!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->
 <?php
-// mensaje que lanza al editar un cliente
-if (isset($_SESSION['messageEdit'])) { ?>
+// mensaje que lanza al Crear un cliente
+if (isset($_SESSION['nuevoCliente'])) { ?>
     <script>
         Swal.fire({
-            title: "Cliente Editado Correctamente",
+            title: "Cliente Creado!",
             confirmButtonColor: '#007bff',
             confirmButtonText: "Ok",
             icon: 'success'
         });
     </script>
-<?php unset($_SESSION['messageEdit']);
+<?php unset($_SESSION['nuevoCliente']);
 }
-// Mensaje que lanza al borrar un cliente
-if (isset($_SESSION['messageDelete'])) { ?>
-    <script>
-        Swal.fire({
-            title: "Cliente Elimnado Correctamente",
-            confirmButtonColor: '#007bff',
-            confirmButtonText: "Ok",
-            icon: 'success'
-        });
-    </script>
-<?php unset($_SESSION['messageDelete']);
-}
-// mensaje que lanza al registrar un cliente
-if (isset($_SESSION['messageCliente'])) { ?>
-    <script>
-        Swal.fire({
-            title: "Cliente Registrado Correctamente",
-            confirmButtonColor: '#007bff',
-            confirmButtonText: "Ok",
-            icon: 'success'
-        });
-    </script>
-<?php unset($_SESSION['messageCliente']);
-}
+?>
 
+<?php
+// mensaje que lanza al Crear un cliente
+if (isset($_SESSION['editCliente'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Cliente Editado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['editCliente']);
+}
+?>
+
+<?php
+// mensaje que lanza al Crear un cliente
+if (isset($_SESSION['borrarCliente'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Cliente Eliminado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['borrarCliente']);
+}
 ?>
 <!-- ========================================================= -->
 <h1 class="text-center">CLIENTES</h1>

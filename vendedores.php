@@ -1,4 +1,7 @@
-<?php include("db.php") ?>
+<?php
+session_start();
+include("db.php");
+?>
 <!-- verificacion de inicio de sesion -->
 
 <!--  -->
@@ -6,45 +9,50 @@
 <?php include("includes/header.php") ?>
 <!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->
 <?php
-// mensaje que lanza al editar un cliente
-if (isset($_SESSION['messageEdit'])) { ?>
+// mensaje que lanza al Crear un Vendedor
+if (isset($_SESSION['saveVendededor'])) { ?>
     <script>
         Swal.fire({
-            title: "Cliente Editado Correctamente",
+            title: "Vendedor Registrado!",
             confirmButtonColor: '#007bff',
             confirmButtonText: "Ok",
             icon: 'success'
         });
     </script>
-<?php unset($_SESSION['messageEdit']);
+<?php unset($_SESSION['saveVendededor']);
 }
-// Mensaje que lanza al borrar un cliente
-if (isset($_SESSION['messageDelete'])) { ?>
-    <script>
-        Swal.fire({
-            title: "Cliente Elimnado Correctamente",
-            confirmButtonColor: '#007bff',
-            confirmButtonText: "Ok",
-            icon: 'success'
-        });
-    </script>
-<?php unset($_SESSION['messageDelete']);
-}
-// mensaje que lanza al registrar un cliente
-if (isset($_SESSION['messageCliente'])) { ?>
-    <script>
-        Swal.fire({
-            title: "Cliente Registrado Correctamente",
-            confirmButtonColor: '#007bff',
-            confirmButtonText: "Ok",
-            icon: 'success'
-        });
-    </script>
-<?php unset($_SESSION['messageCliente']);
-}
-
 ?>
-<!-- ========================================================= -->
+
+<?php
+// mensaje que lanza al Editar un Vendedor
+if (isset($_SESSION['editVendedor'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Vendedor Editado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['editVendedor']);
+}
+?>
+
+<?php
+// mensaje que lanza al Borar un Vendedor
+if (isset($_SESSION['deleteVendedor'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Vendedor Eliminado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['deleteVendedor']);
+}
+?>
+<!-- ============================================ -->
 <h1 class="text-center">VENDEDORES</h1>
 <div class="container p-4">
     <div class="row">

@@ -40,7 +40,7 @@ if (isset($_POST['boton'])) {
     if (!$resultado) {
       die("Query Failed");
     }
-    // $_SESSION['messageCliente']  = 1; 
+    $_SESSION['saveGasto']  = 1;
   ?>
     <script>
       window.location = "gastos.php"

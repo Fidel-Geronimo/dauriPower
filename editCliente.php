@@ -51,7 +51,8 @@ if (isset($_GET["id"])) {
             $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Editó La Informacion De Un Cliente')";
             mysqli_query($conn, $queryHistorial);
 
-            $_SESSION['messageEdit'] = 1; ?>
+            $_SESSION['editCliente'] = 1; ?>
+
             <script>
                 window.location = "clientes.php";
             </script>

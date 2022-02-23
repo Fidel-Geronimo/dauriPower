@@ -5,6 +5,8 @@ if (isset($_GET["id"])) {
 
     $query = "SELECT * from nuevaentrega";
     $result_facturacion = mysqli_query($conn, $query);
+    // $row = mysqli_fetch_array($result_facturacion);
+
     $contador = 0; //controlo la descripcion del producto
     $total = 0;
 
@@ -39,16 +41,20 @@ if (isset($_GET["id"])) {
         $query = "INSERT INTO detalleentregas(vendedor, producto, cantidad, precioCompra,precioVenta,idDetalle,idVendedor,subtotal,idProducto) VALUES('$vendedor','$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$idVendedor','$subTotal','$idProducto')";
         mysqli_query($conn, $query);
     }
-    $query = "INSERT INTO entregasmuestra(vendedor, descripcion,idDetalle,idvendedor,total,estado) VALUES('$vendedor','$descripcion','$idDetalle','$idVendedor','$total',1)";
-    mysqli_query($conn, $query);
+    if ($contador != 0) {
+        $query = "INSERT INTO entregasmuestra(vendedor, descripcion,idDetalle,idvendedor,total,estado) VALUES('$vendedor','$descripcion','$idDetalle','$idVendedor','$total',1)";
+        mysqli_query($conn, $query);
 
-    $queryDelete = "DELETE from nuevaentrega";
-    mysqli_query($conn, $queryDelete);
+        $queryDelete = "DELETE from nuevaentrega";
+        mysqli_query($conn, $queryDelete);
 
-    $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Realizo Una Entrega De Productos a $vendedor')";
-    mysqli_query($conn, $queryHistorial);
+        $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Realizo Una Entrega De Productos a $vendedor')";
+        mysqli_query($conn, $queryHistorial);
 
-    $_SESSION['entrega'] = 1;
+        $_SESSION['entrega'] = 1;
+        unset($_SESSION['Contenido']);
+    }
+
 ?>
     <script>
         window.location = "index.php"

@@ -41,6 +41,8 @@ if (isset($_GET['close'])) {
     $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Realizo Un Cuadre')";
     mysqli_query($conn, $queryHistorial);
 
+    $_SESSION["Cuadrado"] = 1;
+
     header("location: index.php"); //directo al index
 }
 include("includes/header.php");

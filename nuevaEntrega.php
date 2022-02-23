@@ -8,10 +8,6 @@ include("includes/header.php");
 
 if (!isset($_SESSION["rol"])) {
   header("Location: login.php");
-} else {
-  if ($_SESSION["rol"] == 2) {
-    header("Location: km15/facturacionkm15.php");
-  }
 } ?>
 
 <!-- MENSAJES QUE LANZA AL USUARIO REALIZAR DISTINTIAS ACCIONES -->

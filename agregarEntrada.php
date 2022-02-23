@@ -24,10 +24,7 @@ if (isset($_GET["id"])) {
         $contador = 0; //controlo la descripcion del producto
         $total = 0;
         while ($row = mysqli_fetch_array($resultEntrada)) {
-
-
             $contador++;
-
             $producto = $row['producto'];
             $cantidad = $row['cantidad'];
             $precioCompra = $row['precioCompra'];
@@ -42,7 +39,6 @@ if (isset($_GET["id"])) {
             $existenciaAntigua = $rowProductos['existencia'];
             $existenciaNueva = $existenciaAntigua + $cantidad;
 
-
             if ($contador == 1) {
                 $idDetalle = uniqid(); //AQUI SE GENERA UN ID UNICO PARA LA FACTURACION
                 $titulo = $_POST['titulo'];
@@ -51,19 +47,22 @@ if (isset($_GET["id"])) {
             $queryExistencia = "UPDATE productos set existencia = '$existenciaNueva' WHERE id = $idProducto";
             mysqli_query($conn, $queryExistencia);
 
-            $query = "INSERT INTO detalleentrada (producto, cantidad, precioCompra,precioVenta,idDetalle,subTotal) VALUES('$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$subTotal')";
+            $query = "INSERT INTO detalleentrada (producto, cantidad, precioCompra,precioVenta,idDetalle,subTotal,idProducto) VALUES('$producto','$cantidad','$precioCompra', '$precioVenta','$idDetalle','$subTotal','$idProducto')";
             mysqli_query($conn, $query);
         }
-        $query = "INSERT INTO historialentradas(descripcion,total,idDetalle,estado) VALUES('$titulo','$total','$idDetalle',1)";
-        mysqli_query($conn, $query);
+        if ($contador != 0) {
+            $query = "INSERT INTO historialentradas(descripcion,total,idDetalle,estado) VALUES('$titulo','$total','$idDetalle',1)";
+            mysqli_query($conn, $query);
 
-        $queryDelete = "DELETE from nuevaentrada";
-        mysqli_query($conn, $queryDelete);
+            $queryDelete = "DELETE from nuevaentrada";
+            mysqli_query($conn, $queryDelete);
 
-        $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Agrego Existencia A Algunos Productos')";
-        mysqli_query($conn, $queryHistorial);
+            $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Agrego Existencia A Algunos Productos')";
+            mysqli_query($conn, $queryHistorial);
 
-        $_SESSION['agregadoEntrada'] = 1;
+            $_SESSION['agregadoEntrada'] = 1;
+        }
+
 
     ?>
         <script>

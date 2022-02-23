@@ -43,7 +43,7 @@ if (isset($_GET["id"])) {
 
 
 
-            // $_SESSION['messageEdit'] = 1; 
+            $_SESSION['editGasto'] = 1;
         ?>
             <script>
                 window.location = "gastos.php";
@@ -66,8 +66,8 @@ if (isset($_GET["id"])) {
 include("includes/header.php");
 ?>
 <!--  -->
-
 <div class="container p-4 shadow editwidth">
+    <h2 class="text-center">Edicion Gasto</h2>
     <div class="col-md-8 mx-auto">
         <div class="card_body">
             <form action="editGasto.php?id=<?php echo $_GET["id"]; ?>" method="post">

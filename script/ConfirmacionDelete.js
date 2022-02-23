@@ -177,6 +177,22 @@ function confirmarEliminarEfectivo(id) {
         }
     });
 }
+// Eliminar Entrada en el historial de entradas
+function confirmarEliminarEntrada(id) {
+    Swal.fire({
+        title: "Decide",
+        text: "Desea Eliminar Esta Entrada?, Se Va A Revertir El Agregado!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#007bff",
+        confirmButtonText: "Sí, Eliminar",
+        cancelButtonText: "No",
+    }).then((resultado) => {
+        if (resultado.value) {
+            window.location.href = "deleteTaskEntrada.php?idDetalle=" + id;
+        }
+    });
+}
 // =====================================================
 // Realizar Cuadre
 function confirmarCierre(id) {
