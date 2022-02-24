@@ -58,6 +58,7 @@ if (isset($_GET["id"])) {
         $_SESSION['productos'] = $productosArray;
         $_SESSION['total'] = $totalArray;
         $_SESSION['cantidades'] = $cantidadArray;
+        unset($_SESSION['ContenidoCredito']);
     }
 
 

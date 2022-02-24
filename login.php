@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("db.php");
+$mostrar = 0;
 ?>
 
 <?php
@@ -19,10 +20,9 @@ if (isset($_SESSION["rol"])) {
 }
 
 if (isset($_POST["login"])) {
-    if ($_POST['usuario'] == "" || $_POST['clave'] == "") { ?>
-        <script>
-            alert("Dejaste un campo vacio")
-        </script>
+    if ($_POST['usuario'] == "" || $_POST['clave'] == "") {
+        $mostrar = 2; ?>
+
         <?php } else {
         $usuario = $_POST["usuario"];
         $contra = $_POST["clave"];
@@ -42,56 +42,59 @@ if (isset($_POST["login"])) {
                     break;
                 default:
             }
-        } else { ?>
-            <script>
-                alert("Usuario no encontrado")
-            </script>
+        } else {
+            $mostrar = 1; ?>
+
 <?php }
     }
 }
 // verificacion de inicio de sesion
 ?>
 
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap 4-->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="styles/login.css" rel="stylesheet">
-    <!-- favicon -->
-    <!-- <link rel="shortcut icon" href="img/logo.ico"> -->
-    <title>Login</title>
+    <title>Dauri Power Login</title>
+    <link rel="stylesheet" href="styles/login.css.">
+    <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 </head>
 
 <body>
-
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <!-- Tabs Titles -->
-
-            <!-- Icon -->
-            <div class="fadeIn first">
-                <img src="img/logo.ico" id="icon" alt="User Icon" />
-            </div>
-
-            <!-- Login Form -->
+    <div class="container">
+        <div class="wrapper">
+            <div class="title"><span>Dauri Power</span></div>
             <form method="post" action="#">
-                <input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Usuario">
-                <input type="password" id="password" class="fadeIn third" name="clave" placeholder="Contraseña">
-                <input type="submit" name="login" class="fadeIn fourth" value="Ingresar">
+                <div class="row">
+                    <i class="fas fa-user"></i>
+                    <input id="login" name="usuario" type="text" placeholder="Usuario" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input name="clave" id="password" type="password" placeholder="Password" required>
+                </div>
+                <div class="pass"><a href="#">Usuario Y Contraseña</a></div>
+                <div class="row button">
+                    <input id="btn-login" type="submit" name="login" value="Login">
+                </div>
+                <?php
+                if ($mostrar == 1) {
+                    echo "<div>
+                        <p style='color:red'>Error, El Usuario No Existe</p>
+                    </div>";
+                } else if ($mostrar == 2) {
+                    echo "<div>
+                        <p style='color:red'>Error, Dejaste Algun Campo Vacio</p>
+                    </div>";
+                }
+                ?>
             </form>
         </div>
     </div>
-
-
 </body>
 
 </html>

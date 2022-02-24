@@ -44,7 +44,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.3/datatables.min.css" />
 
     <!-- favicon -->
-    <!-- <link rel="shortcut icon" href="img/logo.ico"> -->
+    <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
 
     <!-- estilos adicionales -->
     <link href="styles/estilos.css" rel="stylesheet">
@@ -71,7 +71,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
     </nav>
     <!-- Modal par seleccionar el Vendedor al ser agregado -->
     <div class="modal fade" id="modalVendedor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Selecciona El Vendedor</h5>
@@ -101,7 +101,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
     <!--  -->
     <!-- Modal par seleccionar el Vendedor y el cliente en el agregado de un credito nuevo -->
     <div class="modal fade" id="modalVendedorYcliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Selecciona El Vendedor</h5>
@@ -149,28 +149,28 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                 <div class="modal-body ">
                     <ul class="list-group list-group-flush">
                         <a href="index.php" class="nav-link">
-                            <li class="bg-primary text-white list-group-item itemMenuLateral"><i class="iconos bi bi-file-text-fill"></i>ENTREGAS</li>
-                        </a>
-                        <a href="efectivo.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> EFECTIVO</li>
+                            <li class="bg-primary text-white list-group-item itemMenuLateral"><i class="bi bi-send-fill"></i> ENTREGAS</li>
                         </a>
                         <a href="almacen.php" class="nav-link">
                             <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> ALMACEN</li>
                         </a>
-                        <a href="creditos.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> CREDITOS</li>
-                        </a>
-                        <a href="clientes.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-calendar-x-fill"></i> CLIENTES</li>
+                        <a href="efectivo.php" class="nav-link">
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-coin"></i> EFECTIVO</li>
                         </a>
                         <a href="gastos.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> GASTOS</li>
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-wallet2"></i> GASTOS</li>
+                        </a>
+                        <a href="creditos.php" class="nav-link">
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-credit-card-2-back-fill"></i> CREDITOS</li>
+                        </a>
+                        <a href="clientes.php" class="nav-link">
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-people-fill"></i> CLIENTES</li>
                         </a>
                         <a href="vendedores.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> VENDEDORES</li>
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-basket3-fill"></i> VENDEDORES</li>
                         </a>
                         <a href="historial.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-person-badge-fill"></i> HISTORIAL</li>
+                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-clock-history"></i> HISTORIAL</li>
                         </a>
                         <a href="login.php?cerrar_sesion=cerrar" class="nav-link" id="prueba">
                             <li class="list-group-item itemMenuLateral">CERRAR SESION</li>
@@ -345,10 +345,6 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <div class="form-group mb-2">
                             <label for="existencia">Existencia: </label>
                             <input type="number" id="existencia" name="existencia" class="form-control" placeholder="Existencia En Almacen">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Comentarios Adicionales</label>
-                            <textarea name="comentario" placeholder="Agrega un comentario (OPCIONAL)" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

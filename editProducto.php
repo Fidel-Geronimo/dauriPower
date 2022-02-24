@@ -94,11 +94,6 @@ if (isset($_GET["id"])) {
                         <label for="existencia">Existencia</label>
                         <input type="text" name="existencia" id="existencia" value="<?php echo $existencia ?>" class="form-control" placeholder="Edita la direccion">
                     </div>
-
-                    <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Comentarios Adicionales</label>
-                        <textarea name="comentario" placeholder="Agrega un comentario" class="form-control" id="exampleFormControlTextarea1" rows="3"><?php echo $comentario ?></textarea>
-                    </div>
                     <button class="btn btn-success" name="actualizar">
                         Actualizar
                     </button>

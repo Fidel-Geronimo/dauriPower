@@ -30,7 +30,7 @@ if (!isset($_SESSION["rol"])) {
 <div class="container mb-3 mt-2">
     <div class="row align-items-center">
         <div class="col">
-            <h3>Detalle de la entrega</h1>
+            <h3>Detalle Del Credito</h1>
         </div>
     </div>
 </div>

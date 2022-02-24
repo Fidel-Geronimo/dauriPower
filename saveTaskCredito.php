@@ -64,6 +64,7 @@ if (isset($_GET["id"])) {
     mysqli_query($conn, $query);
 
     $_SESSION['agregadoProductoCredito'] = 1;
+    $_SESSION['ContenidoCredito'] = 1;
 
   ?>
     <script>

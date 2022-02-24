@@ -77,7 +77,16 @@ if (isset($_SESSION['borradoCredito'])) { ?>
 
 
 <!-- ============================================ -->
+<!-- limpiado de base de nueva entrada -->
 
+<?php
+if (isset($_SESSION['ContenidoCredito'])) {
+    $queryDelete = "DELETE FROM nuevaentregacredito";
+    $result_facturacion = mysqli_query($conn, $queryDelete);
+}
+
+?>
+<!-- ============================================ -->
 
 
 <div class="container p-4">
@@ -100,9 +109,6 @@ if (isset($_SESSION['borradoCredito'])) { ?>
                             <th>fecha</th>
                             <th style="color: #f00">Deuda Total</th>
                             <th>Acciones</th>
-
-
-
                         </tr>
                     </thead>
                     <tbody id=" developers">
