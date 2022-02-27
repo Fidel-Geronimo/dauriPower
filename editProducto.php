@@ -36,7 +36,6 @@ if (isset($_GET["id"])) {
             $costo = $_POST["costo"];
             $precio = ucfirst(strtolower($_POST["precio"]));
             $existencia = $_POST["existencia"];
-            $comentario = ucfirst(strtolower($_POST["comentario"]));
 
             $query = "UPDATE productos set nombre = '$nombre', precioCompra= '$costo',precioVenta= '$precio',existencia= '$existencia',comentario= '$comentario' WHERE id = $id";
             mysqli_query($conn, $query);

@@ -149,28 +149,28 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                 <div class="modal-body ">
                     <ul class="list-group list-group-flush">
                         <a href="index.php" class="nav-link">
-                            <li class="bg-primary text-white list-group-item itemMenuLateral"><i class="bi bi-send-fill"></i> ENTREGAS</li>
+                            <li class="bg-success text-white list-group-item itemMenuLateral"><i class="bi bi-send-fill"></i> ENTREGAS</li>
                         </a>
                         <a href="almacen.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="iconos bi bi-piggy-bank-fill"></i> ALMACEN</li>
+                            <li class="list-group-item itemMenuLateral bg-success text-white"><i class="bi bi-piggy-bank-fill"></i> ALMACEN</li>
                         </a>
                         <a href="efectivo.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-coin"></i> EFECTIVO</li>
+                            <li class="list-group-item itemMenuLateral bg-success text-white"><i class="bi bi-coin"></i> EFECTIVO</li>
                         </a>
                         <a href="gastos.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-wallet2"></i> GASTOS</li>
+                            <li class="list-group-item itemMenuLateral bg-success text-white"><i class="bi bi-wallet2"></i> GASTOS</li>
                         </a>
                         <a href="creditos.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-credit-card-2-back-fill"></i> CREDITOS</li>
+                            <li class="list-group-item itemMenuLateral bg-success text-white"><i class="bi bi-credit-card-2-back-fill"></i> CREDITOS</li>
                         </a>
                         <a href="clientes.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-people-fill"></i> CLIENTES</li>
+                            <li class="list-group-item itemMenuLateral bg-success text-white"><i class="bi bi-people-fill"></i> CLIENTES</li>
                         </a>
                         <a href="vendedores.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-basket3-fill"></i> VENDEDORES</li>
+                            <li class="list-group-item itemMenuLateral bg-success text-white"><i class="bi bi-basket3-fill"></i> VENDEDORES</li>
                         </a>
                         <a href="historial.php" class="nav-link">
-                            <li class="list-group-item itemMenuLateral bg-primary text-white"><i class="bi bi-clock-history"></i> HISTORIAL</li>
+                            <li class="list-group-item itemMenuLateral bg-success text-white"><i class="bi bi-clock-history"></i> HISTORIAL</li>
                         </a>
                         <a href="login.php?cerrar_sesion=cerrar" class="nav-link" id="prueba">
                             <li class="list-group-item itemMenuLateral">CERRAR SESION</li>
@@ -180,7 +180,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                 <div class="modal-footer">
                     <div class="container">
                         <div class="row">
-                            <button type="button" onclick="location.href='cuadre.php'" class="btn btn-success">CUADRAR</button>
+                            <button type="button" onclick="location.href='cuadre.php'" class="btn btn-inverse">CUADRAR</button>
                         </div>
                     </div>
                 </div>

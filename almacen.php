@@ -87,23 +87,18 @@ if (isset($_SESSION['eliminarEntradas'])) { ?>
 
 <!-- ============================================ -->
 
-
-
 <div class="container p-4">
     <h2 class="">PRODUCTOS EN ALMACEN</h1>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <button type="button" class="btn btn-primary btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#registroProductos"><i class="fas fa-plus"></i>
-                        Nuevo Producto
-                    </button>
-                    <button type="button" onclick="location.href='nuevaEntrada.php?id=0'" class="btn btn-primary btn-lg edicionButton"><i class="fas fa-plus"></i>
-                        Agregar Existencia
-                    </button>
-                    <button type="button" onclick="location.href='historialEntradas.php'" class="btn btn-primary btn-lg edicionButton"><i class="bi bi-clock-history"></i>
-                    </button>
-                </div>
-            </div>
+        <div class="d-flex justify-content-start">
+            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#registroProductos"><i class="fas fa-plus"></i>
+                Nuevo Producto
+            </button>
+            <button type="button" onclick="location.href='nuevaEntrada.php?id=0'" class="btn btn-primary ms-3 mb-3"><i class="fas fa-plus"></i>
+                Agregar Existencia
+            </button>
+            <button type="button" onclick="location.href='historialEntradas.php'" class="btn btn-primary ms-3 mb-3"><i class="bi bi-clock-history"></i>
+            </button>
+
         </div>
         <!-- boton de nueva factura -->
         <!--  -->
