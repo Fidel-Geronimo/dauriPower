@@ -59,7 +59,7 @@ if (isset($_POST["login"])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dauri Power Login</title>
-    <link rel="stylesheet" href="styles/login.css.">
+    <link rel="stylesheet" href="styles/login.css">
     <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 

@@ -41,8 +41,8 @@ session_start();
                     // DETALLE DE LAS ENTRADAS
                     if ($_GET['id'] == "entradas") {
                         echo "<tr>
-                                <th>Vendedor</th>
                                 <th>Descripcion</th>
+                                <th style='color: #38b52d;'>Total</th>
                                 <th>Fecha</th>
                             </tr> ";
                     }
