@@ -24,7 +24,7 @@ if (!isset($_SESSION["rol"])) {
 <div class="container mb-3 mt-2">
     <div class="row align-items-center">
         <div class="col">
-            <h3>Historial de Entradas</h1>
+            <h3>HISTORIAL ENTRADAS</h1>
         </div>
     </div>
 </div>

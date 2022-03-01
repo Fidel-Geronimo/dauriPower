@@ -30,7 +30,7 @@ if (!isset($_SESSION["rol"])) {
 <div class="container mb-3 mt-2">
     <div class="row align-items-center">
         <div class="col">
-            <h3>Detalle de la entrega</h1>
+            <h3>DETALLE DE LA ENTRADA</h1>
         </div>
     </div>
 </div>
@@ -56,6 +56,7 @@ if (!isset($_SESSION["rol"])) {
                 $query = "SELECT * from detalleentrada where idDetalle ='$idDetalle' ";
                 $result_facturacion = mysqli_query($conn, $query);
                 $contador = 0;
+                $total = 0;
 
                 while ($row = mysqli_fetch_array($result_facturacion)) { ?>
                     <tr>
@@ -65,9 +66,15 @@ if (!isset($_SESSION["rol"])) {
                         <td style="color: #38b52d "><?php echo $row['precioVenta']; ?></td>
                         <td><?php echo $row['subTotal']; ?></td>
                     </tr>
-                <?php } ?>
+                <?php
+                    $total = $total + ($row['cantidad'] * $row['precioCompra']);
+                }
+                ?>
+
             </tbody>
         </table>
+        <label style="color: #38b52d" for="total"><b>TOTAL FACTURA $</b></label>
+        <input type="text" value="<?php echo $total ?>" readonly>
     </div>
 </div>
 </div>

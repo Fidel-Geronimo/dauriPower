@@ -48,7 +48,7 @@ if (!isset($_SESSION["rol"])) {
 
                 while ($row = mysqli_fetch_array($result_facturacion)) { ?>
                     <tr>
-                        <td><a href="detalleEntrada.php?idDetalle=<?php echo $row['fecha']; ?>" class="text-decoration-none text-dark"><?php echo $row['fecha']; ?></a></td>
+                        <td><a href="detalleHistorialCuadre.php?idDetalle=<?php echo $row['idDetalle']; ?>" class="text-decoration-none text-dark"><?php echo $row['fecha']; ?></a></td>
                     </tr>
                 <?php } ?>
             </tbody>

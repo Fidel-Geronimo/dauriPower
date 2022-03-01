@@ -2,6 +2,7 @@
 session_start();
 include("db.php");
 $mostrar = 0;
+$usuario = "";
 ?>
 
 <?php
@@ -20,12 +21,12 @@ if (isset($_SESSION["rol"])) {
 }
 
 if (isset($_POST["login"])) {
+    $usuario = $_POST["usuario"];
+    $contra = $_POST["clave"];
     if ($_POST['usuario'] == "" || $_POST['clave'] == "") {
         $mostrar = 2; ?>
-
         <?php } else {
-        $usuario = $_POST["usuario"];
-        $contra = $_POST["clave"];
+
 
         $query = "SELECT * FROM usuarios WHERE nombre = '$usuario' AND contrasena = '$contra'";
         $resultado = mysqli_query($conn, $query);
@@ -37,7 +38,7 @@ if (isset($_POST["login"])) {
             $_SESSION["rol"] = $rol;
             switch ($_SESSION["rol"]) {
                 case 1:
-                    $_SESSION["usuario"] = "Dauris";
+                    $_SESSION["usuario"] = "Daury";
                     header("Location: index.php");
                     break;
                 default:
@@ -67,11 +68,11 @@ if (isset($_POST["login"])) {
 <body>
     <div class="container">
         <div class="wrapper">
-            <div class="title"><span>Dauri Power</span></div>
+            <div class="title"><span>Daury Power</span></div>
             <form method="post" action="#">
                 <div class="row">
                     <i class="fas fa-user"></i>
-                    <input id="login" name="usuario" type="text" placeholder="Usuario" required>
+                    <input id="login" name="usuario" type="text" placeholder="Usuario" required value="<?php echo $usuario ?>">
                 </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>

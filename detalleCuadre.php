@@ -32,10 +32,10 @@ session_start();
                     // DETALLE DE LAS ENTREGAS
                     if ($_GET['id'] == "entregas") {
                         echo "<tr>
+                                <th>Vendedor</th>
                                 <th>Descripcion</th>
-                                <th style='color: #38b52d;'>Total</th>
-                                <th>Fecha</th>
-                                <th>Total</th>
+                                <th>fecha</th>
+                                <th style='color: #38b52d'>Total</th>
                             </tr> ";
                     }
                     // DETALLE DE LAS ENTRADAS

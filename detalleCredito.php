@@ -30,7 +30,7 @@ if (!isset($_SESSION["rol"])) {
 <div class="container mb-3 mt-2">
     <div class="row align-items-center">
         <div class="col">
-            <h3>Detalle Del Credito</h1>
+            <h3>DETALLE CREDITO</h1>
         </div>
     </div>
 </div>
@@ -44,8 +44,8 @@ if (!isset($_SESSION["rol"])) {
                 <tr>
                     <th>Cliente</th>
                     <th>Vendedor</th>
-                    <th>producto</th>
-                    <th>cantidad</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
                     <th>Precio Compra</th>
                     <th>Precio Venta</th>
                     <th style="color: #f00">Sub Total</th>

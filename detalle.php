@@ -30,7 +30,7 @@ if (!isset($_SESSION["rol"])) {
 <div class="container mb-3 mt-2">
     <div class="row align-items-center">
         <div class="col">
-            <h3>Detalle de la entrega</h1>
+            <h3>DETALLE ENTREGA</h1>
         </div>
     </div>
 </div>
@@ -43,8 +43,8 @@ if (!isset($_SESSION["rol"])) {
             <thead>
                 <tr>
                     <th>Vendedor</th>
-                    <th>producto</th>
-                    <th>cantidad</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
                     <th>Precio Compra</th>
                     <th>Precio Venta</th>
                     <th style="color: #38b52d;">Sub Total</th>
@@ -57,6 +57,7 @@ if (!isset($_SESSION["rol"])) {
                 $query = "SELECT * from detalleentregas where idDetalle ='$idDetalle' ";
                 $result_facturacion = mysqli_query($conn, $query);
                 $contador = 0;
+                $total = 0;
 
                 while ($row = mysqli_fetch_array($result_facturacion)) { ?>
                     <tr>
@@ -66,40 +67,15 @@ if (!isset($_SESSION["rol"])) {
                         <td><?php echo $row['precioCompra']; ?></td>
                         <td><?php echo $row['precioVenta'] ?></td>
                         <td style="color:#38b52d;"><?php echo $row['subtotal'] ?></td>
-
-
-
-                        <!-- <td> -->
-                        <!-- boton collapse-->
-
-                        <?php
-                        // $string1 = strval($contador);
-                        // $azul = "collapseExample$contador";
-                        // $contador = $contador + 1; 
-                        ?>
-
-                        <!-- <p>
-                                <a href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary botonesOpciones">Editar <i class="fas fa-edit"></i></a>
-                                <button class="btn btn-primary itemMenuLateral dropdown-toggle bg-primary text-white mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#<?php echo $azul ?>" aria-expanded="false" aria-controls="<?php echo $azul ?>">
-                                    Opciones
-                                </button>
-
-                            </p>
-
-                            <div class="collapse" id="<?php echo $azul ?>">
-                                <div class="card card-body"> -->
-                        <!-- <a href="abono-facturas.php?id=<?php echo $row['id'] ?>" class="btn btn-info botonesOpciones text-white">Abonar</a> -->
-                        <!-- <a class="btn btn-warning botonesOpciones text-white" onclick="confirmacionReenvioGas(<?php echo $row['id'] ?>)">Factura</a> -->
-                        <!-- <a onclick="confirmacion(<?php echo $row['id'] ?>)" class="btn btn-danger botonesOpciones elimina">Eliminar</a> -->
-                        <!-- <a class="btn btn-success botonesOpciones" onclick="confirmacionPago(<?php echo $row['id'] ?>)">Pago</a> -->
-                        <!-- </div>
-                            </div> -->
-                        <!--  -->
-                        <!-- </td> -->
                     </tr>
-                <?php } ?>
+                <?php $total = $total + $row['subtotal'];
+                }
+
+                ?>
             </tbody>
         </table>
+        <label style="color: #38b52d" for="total"><b>TOTAL ENTREGA $</b></label>
+        <input type="text" value="<?php echo $total ?>" readonly>
     </div>
 </div>
 </div>

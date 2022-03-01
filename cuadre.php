@@ -20,19 +20,19 @@ if (isset($_GET['close'])) {
     $creditos = $_GET["creditos"];
     $gastos = $_GET["gastos"];
 
-    // cierre entregas a vendedores
-    $queryEntregas = "UPDATE entregasmuestra set estado = 0 WHERE estado = 1";
-    mysqli_query($conn, $queryEntregas);
-
-    $queryEntregas = "INSERT INTO detallecierres (razon,total,idDetalle) VALUES ('Entregas A Vendedores (Productos)',$entregas,'$idDetalle')";
-    mysqli_query($conn, $queryEntregas);
-
 
     // cierre efectivo 
     $queryEfectivo = "UPDATE efectivo set estado = 0 WHERE estado = 1";
     mysqli_query($conn, $queryEfectivo);
 
     $queryEntregas = "INSERT INTO detallecierres (razon,total,idDetalle) VALUES ('Efectivo Entregado (Vendedores)',$efectivo,'$idDetalle')";
+    mysqli_query($conn, $queryEntregas);
+
+    // cierre entregas a vendedores
+    $queryEntregas = "UPDATE entregasmuestra set estado = 0 WHERE estado = 1";
+    mysqli_query($conn, $queryEntregas);
+
+    $queryEntregas = "INSERT INTO detallecierres (razon,total,idDetalle) VALUES ('Entregas A Vendedores (Productos)',$entregas,'$idDetalle')";
     mysqli_query($conn, $queryEntregas);
 
     // cierre entradas de productos
@@ -61,13 +61,13 @@ if (isset($_GET['close'])) {
     mysqli_query($conn, $queryHistorial);
 
     // PARA EL DETALLE EN EL HISTORIAL DE CUADRES
-    $queryHistorialCierre = "INSERT INTO hitorialcuadres (id) VALUES ($idDetalle)";
+    $queryHistorialCierre = "INSERT INTO historialcuadres (idDetalle) VALUES ('$idDetalle')";
     mysqli_query($conn, $queryHistorialCierre);
 
     $_SESSION["Cuadrado"] = 1;
 
 
-    // header("location: index.php"); //directo al index
+    header("location: index.php"); //directo al index
 }
 include("includes/header.php");
 ?>
@@ -78,7 +78,7 @@ include("includes/header.php");
 <div class="container p-4">
     <div class="d-flex bd-highlight">
         <div class="me-auto p-2 bd-highlight">
-            <h1>Cuadre</h1>
+            <h1>CUADRE</h1>
         </div>
         <div class="p-2 bd-highlight">
             <button type="button" onclick="location.href='historialCuadres.php'" class="btn btn-primary ms-3 mb-3"><i class="bi bi-clock-history"></i>
@@ -180,9 +180,9 @@ include("includes/header.php");
     </div>
     <div class="d-flex bd-highlight mb-3">
         <div class="me-auto p-2 bd-highlight">
-            <button type="button" class="btn btn-warning btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#registroProductos"><i class="bi bi-printer-fill"></i>
+            <!-- <button type="button" class="btn btn-warning btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#proximamente"><i class="bi bi-printer-fill"></i>
                 Imprimir
-            </button>
+            </button> -->
         </div>
 
         <div class="p-2 bd-highlight">

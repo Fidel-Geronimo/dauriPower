@@ -93,7 +93,7 @@ if (isset($_SESSION['eliminarEntradas'])) { ?>
             <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#registroProductos"><i class="fas fa-plus"></i>
                 Nuevo
             </button>
-            <button type="button" onclick="location.href='nuevaEntrada.php?id=0'" class="btn btn-primary ms-3 mb-3"><i class="fas fa-plus"></i>
+            <button type="button" onclick="location.href='nuevaEntrada.php?id=0'" class="btn btn-primary ms-3 mb-3"><i class="bi bi-box-arrow-in-up"></i>
                 Existencia
             </button>
             <button type="button" onclick="location.href='historialEntradas.php'" class="btn btn-primary ms-3 mb-3"><i class="bi bi-clock-history"></i>
