@@ -195,7 +195,7 @@ function confirmarEliminarEntrada(id) {
 }
 // =====================================================
 // Realizar Cuadre
-function confirmarCierre(id) {
+function confirmarCierre(efectivo, entregas, entradas, creditos, gastos) {
     Swal.fire({
         title: "Decide",
         text: "Seguro Que Desea Realizar El cuadre?, No Se Puede Revertir!",
@@ -206,7 +206,7 @@ function confirmarCierre(id) {
         cancelButtonText: "No",
     }).then((resultado) => {
         if (resultado.value) {
-            window.location.href = "cuadre.php?close=true";
+            window.location.href = "cuadre.php?close=true&efectivo=" + efectivo + "&entregas=" + entregas + "&entradas=" + entradas + "&creditos=" + creditos + "&gastos=" + gastos;
         }
     });
 }

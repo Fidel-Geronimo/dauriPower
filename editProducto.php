@@ -15,7 +15,7 @@ if (isset($_GET["id"])) {
         $costo = $row["precioCompra"];
         $precio = $row["precioVenta"];
         $existencia = $row["existencia"];
-        $comentario = $row["comentario"];
+        $minimo = $row["minimo"];
     }
     if (isset($_POST["actualizar"])) {
         if ($_POST['nombre'] == "" || $_POST['costo'] == "" || $_POST['precio'] == "") { ?>
@@ -36,8 +36,9 @@ if (isset($_GET["id"])) {
             $costo = $_POST["costo"];
             $precio = ucfirst(strtolower($_POST["precio"]));
             $existencia = $_POST["existencia"];
+            $minimo = $_POST["minimo"];
 
-            $query = "UPDATE productos set nombre = '$nombre', precioCompra= '$costo',precioVenta= '$precio',existencia= '$existencia',comentario= '$comentario' WHERE id = $id";
+            $query = "UPDATE productos set nombre = '$nombre', precioCompra= '$costo',precioVenta= '$precio',existencia= '$existencia',minimo= '$minimo' WHERE id = $id";
             mysqli_query($conn, $query);
 
             $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Editó La Informacion De Un Producto')";
@@ -93,9 +94,17 @@ if (isset($_GET["id"])) {
                         <label for="existencia">Existencia</label>
                         <input type="text" name="existencia" id="existencia" value="<?php echo $existencia ?>" class="form-control" placeholder="Edita la direccion">
                     </div>
-                    <button class="btn btn-success" name="actualizar">
-                        Actualizar
-                    </button>
+                    <div class="form-group">
+                        <label for="minimo">Minimo</label>
+                        <input type="text" name="minimo" id="minimo" value="<?php echo $minimo ?>" class="form-control" placeholder="Edita la direccion">
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <button class="btn btn-success mt-2" name="actualizar">
+                                Actualizar
+                            </button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

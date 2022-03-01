@@ -91,20 +91,20 @@ if (isset($_SESSION['eliminarEntradas'])) { ?>
     <h2 class="">PRODUCTOS EN ALMACEN</h1>
         <div class="d-flex justify-content-start">
             <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#registroProductos"><i class="fas fa-plus"></i>
-                Nuevo Producto
+                Nuevo
             </button>
             <button type="button" onclick="location.href='nuevaEntrada.php?id=0'" class="btn btn-primary ms-3 mb-3"><i class="fas fa-plus"></i>
-                Agregar Existencia
+                Existencia
             </button>
             <button type="button" onclick="location.href='historialEntradas.php'" class="btn btn-primary ms-3 mb-3"><i class="bi bi-clock-history"></i>
             </button>
-
+            <button type="button" onclick="location.href='minimoExistencia.php'" class="btn btn-danger ms-3 mb-3"><i class="bi bi-graph-down-arrow"></i>
+            </button>
         </div>
         <!-- boton de nueva factura -->
         <!--  -->
         <div class="table-responsive">
             <!-- tabla -->
-
             <table class="table table-striped table-bordered" style="width:100%" id="example">
                 <thead>
                     <tr>
@@ -114,9 +114,6 @@ if (isset($_SESSION['eliminarEntradas'])) { ?>
                         <th>Existencia</th>
                         <th>Fecha</th>
                         <th>Acciones</th>
-
-
-
                     </tr>
                 </thead>
                 <tbody id=" developers">

@@ -180,7 +180,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                 <div class="modal-footer">
                     <div class="container">
                         <div class="row">
-                            <button type="button" onclick="location.href='cuadre.php'" class="btn btn-inverse">CUADRAR</button>
+                            <button type="button" onclick="location.href='cuadre.php'" class="btn btn-warning">CUADRAR</button>
                         </div>
                     </div>
                 </div>
@@ -340,11 +340,15 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         </div>
                         <div class="form-group mb-2">
                             <label for="precio">Precio: </label>
-                            <input type="precio" id="precio" name="precio" class="form-control" placeholder="Precio Del Producto">
+                            <input type="number" id="precio" name="precio" class="form-control" placeholder="Precio Del Producto">
                         </div>
                         <div class="form-group mb-2">
                             <label for="existencia">Existencia: </label>
                             <input type="number" id="existencia" name="existencia" class="form-control" placeholder="Existencia En Almacen">
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="minimo">Minimo: </label>
+                            <input type="number" id="minimo" name="minimo" class="form-control" placeholder="Minimo De Existencia">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

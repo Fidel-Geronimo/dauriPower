@@ -81,9 +81,6 @@ if (isset($_SESSION['editGasto'])) { ?>
                             <th style="color: #f00">Monto</th>
                             <th>Fecha</th>
                             <th>Acciones</th>
-
-
-
                         </tr>
                     </thead>
                     <tbody id=" developers">

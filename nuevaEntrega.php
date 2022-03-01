@@ -85,6 +85,7 @@ if (isset($_SESSION['deleteProductoEntrega'])) { ?>
         $query = "SELECT * from nuevaentrega ORDER BY fecha DESC";
         $result_facturacion = mysqli_query($conn, $query);
         $contador = 0;
+        $total = 0;
 
         while ($row = mysqli_fetch_array($result_facturacion)) { ?>
           <tr>
@@ -103,10 +104,13 @@ if (isset($_SESSION['deleteProductoEntrega'])) { ?>
               <!--  -->
             </td>
           </tr>
-        <?php } ?>
+        <?php $total = $total + $row['subtotal'];
+        } ?>
 
       </tbody>
     </table>
+    <label style="color: #38b52d" for="total"><b>TOTAL ENTREGA $</b></label>
+    <input type="text" value="<?php echo $total ?>" readonly>
   </div>
 </div>
 </div>
