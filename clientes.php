@@ -74,6 +74,7 @@ if (isset($_SESSION['borrarCliente'])) { ?>
                         <th>Nombre</th>
                         <th>Telefono</th>
                         <th>Direccion</th>
+                        <th>Cedula</th>
                         <th>Fecha</th>
                         <th>Acciones</th>
 
@@ -90,6 +91,7 @@ if (isset($_SESSION['borrarCliente'])) { ?>
                             <td><a href="detalleCliente.php?id=<?php echo $row['id'] ?>" class="text-decoration-none text-dark"><?php echo $row['nombre']; ?></a></td>
                             <td><?php echo $row['telefono']; ?></td>
                             <td><?php echo $row['direccion']; ?></td>
+                            <td><?php echo $row['cedula']; ?></td>
                             <td><?php echo $row['fecha']; ?></td>
                             <td>
 

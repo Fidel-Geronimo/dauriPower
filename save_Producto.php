@@ -32,7 +32,7 @@ if (isset($_POST['boton'])) {
     $precioVenta = $_POST['precio'];
     $existencia = $_POST['existencia'];
     $minimo = $_POST['minimo'];
-    $query = "INSERT INTO productos(nombre,precioCompra,precioVenta,existencia,minimo, comentario) VALUES('$nombre','$precioCompra','$precioVenta','$existencia','$minimo')";
+    $query = "INSERT INTO productos(nombre,precioCompra,precioVenta,existencia,minimo) VALUES('$nombre','$precioCompra','$precioVenta','$existencia','$minimo')";
 
     $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Creo Un Producto Llamado $nombre')";
     mysqli_query($conn, $queryHistorial);
@@ -46,7 +46,7 @@ if (isset($_POST['boton'])) {
     $_SESSION['nuevoProducto']  = 1;
   ?>
     <script>
-      // window.location = "almacen.php"
+      window.location = "almacen.php"
     </script>
 <?php
   }

@@ -240,6 +240,9 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                         <div class="form-group">
                             <input type="text" name="direccion" class="form-control mt-2" placeholder="Direccion">
                         </div>
+                        <div class="form-group">
+                            <input type="text" name="cedula" class="form-control mt-2" placeholder="Cedula">
+                        </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Comentarios Adicionales</label>
                             <textarea name="comentario" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -385,7 +388,7 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
         </div>
     </div>
     <!-- Modal de Proximo cuadre-->
-    <div class="modal fade" id="proximamente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="proximamente" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -396,4 +399,4 @@ $resultCliente = mysqli_query($conn, $sqlCliente);
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->

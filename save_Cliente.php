@@ -29,6 +29,7 @@ if (isset($_POST['boton'])) {
     $nombre = quitar_tildes($cadena); // aqui obtengo el nombre con tildes
     $telefono = $_POST['telefono'];
     $direccion = ucfirst(strtolower($_POST['direccion']));
+    $cedula = ucfirst(strtolower($_POST['cedula']));
     $comentario = ucfirst(strtolower($_POST['comentario']));
 
     $queriConfirmacion = "SELECT * from clientes where telefono = $telefono";
@@ -49,7 +50,7 @@ if (isset($_POST['boton'])) {
       </script>
 
     <?php  } else {
-      $query = "INSERT INTO clientes(nombre, telefono, direccion, comentario) VALUES('$nombre','$telefono','$direccion','$comentario')";
+      $query = "INSERT INTO clientes(nombre, telefono, direccion, cedula,comentario) VALUES('$nombre','$telefono','$direccion','$cedula','$comentario')";
 
       $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Creó Un Cliente Nuevo Llamado $nombre')";
       mysqli_query($conn, $queryHistorial);

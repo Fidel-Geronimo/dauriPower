@@ -50,7 +50,7 @@ if (isset($_SESSION['deleteProductoEntrega'])) { ?>
 <div class="container mb-3 mt-2">
   <div class="row align-items-center">
     <div class="col">
-      <h3>Selecciona Los Productos</h1>
+      <h3>SELECCIONA PRODUCTOS</h1>
     </div>
     <div class="col">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">

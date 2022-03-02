@@ -75,6 +75,20 @@ if (isset($_SESSION['borradoCredito'])) { ?>
 <?php unset($_SESSION['borradoCredito']);
 } ?>
 
+<?php
+// mensaje que lanza al Abonar
+if (isset($_SESSION['messageAbono'])) { ?>
+    <script>
+        Swal.fire({
+            title: "Abono Realizado!",
+            confirmButtonColor: '#007bff',
+            confirmButtonText: "Ok",
+            icon: 'success'
+        });
+    </script>
+<?php unset($_SESSION['messageAbono']);
+} ?>
+
 
 <!-- ============================================ -->
 <!-- limpiado de base de nueva entrada -->
@@ -107,6 +121,7 @@ if (isset($_SESSION['ContenidoCredito'])) {
                             <th>Vendedor</th>
                             <th>Descripcion</th>
                             <th>Fecha</th>
+                            <th style="color: #38b52d">Abono</th>
                             <th style="color: #f00">Deuda Total</th>
                             <th>Acciones</th>
                         </tr>
@@ -124,9 +139,12 @@ if (isset($_SESSION['ContenidoCredito'])) {
                                 <td><?php echo $row['vendedor']; ?></td>
                                 <td><a href="detalleCredito.php?idDetalle=<?php echo $row['idDetalle']; ?>" class="text-decoration-none text-dark"><?php echo $row['descripcion']; ?></a></td>
                                 <td><?php echo $row['fecha']; ?></td>
+                                <td style="color: #38b52d"><?php echo $row['abono']; ?></td>
                                 <td style="color:#f00"><?php echo $row['total']; ?></td>
                                 <td>
+                                    <a href="abonoCreditos.php?id=<?php echo $row['id'] ?>" class="btn btn-success botonesOpciones text-white">Abonar</a>
                                     <a onclick="confirmacionEliminarCredito('<?php echo $row['idDetalle'] ?>')" class="btn btn-danger botonesOpciones elimina">Eliminar</a>
+
                                 </td>
                             </tr>
                         <?php } ?>

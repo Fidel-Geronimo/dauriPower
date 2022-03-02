@@ -12,7 +12,7 @@ session_start();
 if (isset($_SESSION['entradaEfectivo'])) { ?>
     <script>
         Swal.fire({
-            title: "Efectvo Registrado!",
+            title: "Efectivo Registrado!",
             confirmButtonColor: '#007bff',
             confirmButtonText: "Ok",
             icon: 'success'
