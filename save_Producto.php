@@ -3,7 +3,7 @@ session_start();
 include("db.php");
 include("includes/header.php");
 if (isset($_POST['boton'])) {
-  if ($_POST['nombre'] == "" || $_POST['costo'] == "" || $_POST['precio'] == "" || $_POST['precio'] == "") { ?>
+  if ($_POST['nombre'] == "" || $_POST['costo'] == "" || $_POST['precio'] == "") { ?>
     <script>
       Swal.fire({
         title: "Error",
@@ -16,7 +16,9 @@ if (isset($_POST['boton'])) {
       });
     </script>
   <?php } else {
-
+    $minimo = 0; // inicializo las varibles en 0
+    $existencia = 0; // inicializo las varibles en 0
+    // ======================================================================
     $cadena = ucwords(strtolower($_POST['nombre'])); //nombre con tildes
     // funcion para eliminar la tilde
     function quitar_tildes($cadena)
@@ -27,11 +29,15 @@ if (isset($_POST['boton'])) {
       return $texto; //nombre sin tildes
     }
 
-    $nombre = quitar_tildes($cadena); // aqui obtengo el nombre con tildes
+    $nombre = quitar_tildes($cadena); // aqui obtengo el nombre sin tildes
     $precioCompra = $_POST['costo'];
     $precioVenta = $_POST['precio'];
-    $existencia = $_POST['existencia'];
-    $minimo = $_POST['minimo'];
+    if ($_POST['existencia'] != "") {
+      $existencia = $_POST['existencia'];
+    } else if ($_POST['minimo'] != "") {
+      $minimo = $_POST['minimo'];
+    }
+
     $query = "INSERT INTO productos(nombre,precioCompra,precioVenta,existencia,minimo) VALUES('$nombre','$precioCompra','$precioVenta','$existencia','$minimo')";
 
     $queryHistorial = "INSERT INTO historial(descripcion) VALUES('$_SESSION[usuario] Creo Un Producto Llamado $nombre')";
@@ -39,9 +45,9 @@ if (isset($_POST['boton'])) {
 
     $resultado = mysqli_query($conn, $query);
 
-    if (!$resultado) {
-      die("Query Failed");
-    }
+    // if (!$resultado) {
+    //   die("Query Failed");
+    // }
 
     $_SESSION['nuevoProducto']  = 1;
   ?>
