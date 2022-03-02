@@ -46,7 +46,7 @@ if (isset($_SESSION['messageCliente'])) { ?>
 ?>
 <!-- ========================================================= -->
 <h1 class="text-center">HISTORIAL</h1>
-<div class="container p-4">
+<div class="container">
     <div class="row">
 
         <!--  -->

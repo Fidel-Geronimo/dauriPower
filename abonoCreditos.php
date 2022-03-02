@@ -78,26 +78,27 @@ if (isset($_GET["id"])) {
 // }
 ?>
 <!--  -->
-
-<div class="responsive">
-    <div class="container p-4 shadow editwidth">
-        <div class="col-md-8 mx-auto">
-            <div class="card_body">
+<h3 class="text-center">ABONO</h1>
+    <div class="responsive">
+        <div class="container p-4 shadow editwidth">
+            <div class="col-md-8 mx-auto">
                 <div class="card_body">
-                    <form action="abonoCreditos.php?id=<?php echo $_GET["id"]; ?>" method="post">
-                        <div class="form-group input-group mb-3">
-                            <span class="input-group-text">$</span>
-                            <input name="abono" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
-                            <span class="input-group-text">.00</span>
-                        </div>
-                        <div class="botonCentro">
-                            <button class="btn btn-success tamano" name="Abonar">
-                                Abonar
-                            </button>
-                        </div>
-                    </form>
+                    <div class="card_body">
+                        <form action="abonoCreditos.php?id=<?php echo $_GET["id"]; ?>" method="post">
+                            <label for="exampleFormControlTextarea1" class="form-label">Introduce La Cantidad Aqui:</label>
+                            <div class="form-group input-group mb-3">
+                                <span class="input-group-text">$</span>
+                                <input name="abono" type="number" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <span class="input-group-text">.00</span>
+                            </div>
+                            <div class="botonCentro">
+                                <button class="btn btn-success tamano" name="Abonar">
+                                    Abonar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <?php include("includes/footer.php"); ?>
+            <?php include("includes/footer.php"); ?>

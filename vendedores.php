@@ -54,7 +54,7 @@ if (isset($_SESSION['deleteVendedor'])) { ?>
 ?>
 <!-- ============================================ -->
 <h1 class="text-center">VENDEDORES</h1>
-<div class="container p-4">
+<div class="container">
     <div class="row">
         <!-- boton de nueva factura -->
 

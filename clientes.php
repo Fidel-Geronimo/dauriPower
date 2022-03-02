@@ -56,7 +56,7 @@ if (isset($_SESSION['borrarCliente'])) { ?>
 ?>
 <!-- ========================================================= -->
 <h1 class="text-center">CLIENTES</h1>
-<div class="container p-4">
+<div class="container">
     <div class="row">
         <!-- boton de nueva factura -->
 

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("includes/header.php");
 include("db.php");
 
 
@@ -77,7 +78,7 @@ if (isset($_GET["id"])) {
 //         header("Location: km15/facturacionkm15.php");
 //     }
 // }
-include("includes/header.php");
+
 ?>
 <!--  -->
 

@@ -108,7 +108,7 @@ if (isset($_SESSION['ContenidoCredito'])) {
         <div class="row">
             <!-- boton de nueva factura -->
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-success btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#modalVendedorYcliente"><i class="fas fa-plus"></i> Nueva Entrega</button>
+            <button type="button" class="btn btn-success btn-lg edicionButton" data-bs-toggle="modal" data-bs-target="#modalVendedorYcliente"><i class="fas fa-plus"></i> Nuevo Credito</button>
 
             <!--  -->
             <div class="table-responsive">
